@@ -1,0 +1,36 @@
+.mainSlider {
+	position: relative;
+	.slideImage {
+		object-fit: cover;
+		width: 100%;
+		height: 200px;
+		opacity: 70%;
+	}
+	.spanContainer {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		width: 100%;
+		height: 200px;
+		top: 0;
+		left: 0;
+
+		.phrase {
+			color: white;
+			font-size: 25px;
+			padding-bottom: 5px;
+			border-bottom: gold 7px solid;
+		}
+	}
+}
+.slideLeft {
+	position: absolute;
+	top: 80px;
+	left: 10px;
+}
+.slideRight {
+	position: absolute;
+	top: 80px;
+	right: 10px;
+}
