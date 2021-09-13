@@ -1,0 +1,51 @@
+.cardContainer {
+	display: flex;
+	flex-direction: row;
+	padding: 30px 20px 5px;
+	background-color: #fafafa;
+	border: black 1px solid;
+	.leftContainer {
+		.uploadInput {
+			position: absolute;
+			width: 150px;
+			height: 150px;
+			opacity: 0;
+		}
+		img {
+			width: 150px;
+			height: 150px;
+			object-fit: cover;
+		}
+	}
+	.rightContainer {
+		padding: 20px;
+		.name,
+		.nameText {
+			font-weight: 800;
+			font-size: 25px;
+			margin-top: 10px;
+		}
+
+		.title,
+		.titleText {
+			font-weight: 600;
+			font-size: 10px;
+			margin: 8px 0 25px;
+		}
+
+		.titleText {
+			margin-bottom: 10px;
+		}
+
+		span,
+		.commonText {
+			font-weight: 400;
+			font-size: 10px;
+		}
+		.commonText,
+		.titleText,
+		.nameText {
+			width: 140px;
+		}
+	}
+}
