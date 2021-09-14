@@ -41,8 +41,6 @@ function History() {
 		});
 	}
 
-	console.log('이력추가 ', histories);
-
 	return (
 		<div>
 			<div className="writeHistoryContainer">
@@ -81,6 +79,4 @@ function History() {
 			</div>
 		</div>
 	);
-}
-
 export default History;
