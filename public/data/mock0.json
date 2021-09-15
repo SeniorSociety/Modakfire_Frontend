@@ -1,0 +1,115 @@
+{
+	"MESSAGE": [
+		{
+			"id": 1,
+			"title": "posting1",
+			"thumbnail": "./images/test1.jpg",
+			"view_count": 1,
+			"created_at": "2021-09-14T07:28:42.857",
+			"updated_at": "2021-09-14T07:28:42.857",
+			"comment_count": 9,
+			"user_nickname": "miracle953",
+			"user_id": 1
+		},
+		{
+			"id": 2,
+			"title": "posting2",
+			"thumbnail": "./images/test2.jpg",
+			"view_count": 17,
+			"created_at": "2021-09-14T07:28:42.876",
+			"updated_at": "2021-09-14T07:28:42.876",
+			"comment_count": 22,
+			"user_nickname": "Test2",
+			"user_id": 2
+		},
+		{
+			"id": 3,
+			"title": "posting3",
+			"thumbnail": "./images/test3.jpg",
+			"view_count": 0,
+			"created_at": "2021-09-14T07:28:42.892",
+			"updated_at": "2021-09-14T07:28:42.892",
+			"comment_count": 9,
+			"user_nickname": "Test3",
+			"user_id": 3
+		},
+		{
+			"id": 4,
+			"title": "posting4",
+			"thumbnail": "./images/test4.jpg",
+			"view_count": 0,
+			"created_at": "2021-09-14T07:28:42.907",
+			"updated_at": "2021-09-14T07:28:42.907",
+			"comment_count": 9,
+			"user_nickname": "Test4",
+			"user_id": 4
+		},
+		{
+			"id": 5,
+			"title": "posting5",
+			"thumbnail": "./images/test5.jpg",
+			"view_count": 0,
+			"created_at": "2021-09-14T07:28:42.926",
+			"updated_at": "2021-09-14T07:28:42.926",
+			"comment_count": 9,
+			"user_nickname": "Test5",
+			"user_id": 5
+		},
+		{
+			"id": 6,
+			"title": "posting6",
+			"thumbnail": "./images/test6.jpg",
+			"view_count": 0,
+			"created_at": "2021-09-14T07:28:42.946",
+			"updated_at": "2021-09-14T07:28:42.946",
+			"comment_count": 9,
+			"user_nickname": "Test6",
+			"user_id": 6
+		},
+		{
+			"id": 7,
+			"title": "posting7",
+			"thumbnail": "./images/test1.jpg",
+			"view_count": 0,
+			"created_at": "2021-09-14T07:28:42.963",
+			"updated_at": "2021-09-14T07:28:42.963",
+			"comment_count": 9,
+			"user_nickname": "Test7",
+			"user_id": 7
+		},
+		{
+			"id": 8,
+			"title": "posting8",
+			"thumbnail": "./images/test2.jpg",
+			"view_count": 0,
+			"created_at": "2021-09-14T07:28:42.977",
+			"updated_at": "2021-09-14T07:28:42.977",
+			"comment_count": 9,
+			"user_nickname": "Test8",
+			"user_id": 8
+		},
+		{
+			"id": 9,
+			"title": "posting9",
+			"thumbnail": "./images/test3.jpg",
+			"view_count": 0,
+			"created_at": "2021-09-14T07:28:42.992",
+			"updated_at": "2021-09-14T07:28:42.992",
+			"comment_count": 9,
+			"user_nickname": "Test9",
+			"user_id": 9
+		},
+		{
+			"id": 82,
+			"title": "1234",
+			"thumbnail": "./images/test4.jpg",
+			"view_count": 1,
+			"created_at": "2021-09-14T01:39:03.465",
+			"updated_at": "2021-09-14T01:39:03.465",
+			"comment_count": 0,
+			"user_nickname": "Test1",
+			"user_id": 1
+		}
+	],
+	"IS_NEXT": true
+}

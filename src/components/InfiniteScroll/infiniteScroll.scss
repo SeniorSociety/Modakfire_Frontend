@@ -1,0 +1,58 @@
+.post {
+	display: flex;
+	align-items: center;
+	margin: 0 auto;
+	margin: 5px;
+	border-bottom: 1px solid #ccc;
+
+	img {
+		width: 70px;
+		height: 70px;
+		margin: 10px 0;
+		border-radius: 15%;
+	}
+
+	.postWrap {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-width: 200px;
+		width: 100%;
+		min-height: 70px;
+
+		h2 {
+			min-width: 200px;
+			min-height: 66%;
+			padding: 5px 15px;
+			line-height: 21px;
+		}
+
+		.idTimeCount {
+			display: flex;
+			align-items: center;
+			padding: 5px 15px 10px 15px;
+			color: #aaa;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			font-size: 0.9rem;
+
+			.user_nickname {
+				max-width: 70px;
+			}
+
+			.created_at {
+				&::before {
+					content: '|';
+					padding: 0 10px;
+				}
+			}
+
+			.forCss {
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+}
