@@ -65,6 +65,7 @@ function BoardViewer(props: any) {
 				.then(response => {
 					axios
 						.get('https://www.seso.kr/galleries/1/2/comments?page=2')
+						// ${props.match.params.id}
 						.then(res => {
 							setCommentContent(res.data.MESSAGE);
 						})
