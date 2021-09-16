@@ -12,7 +12,7 @@ interface editProps {
 	edit: boolean;
 }
 
-function History({ edit }) {
+function History({ edit }: any) {
 	const [addHistory, setAddHistory] = useState<number[]>([0]);
 	const [contents, setContents] = useState<Inputs>({
 		id: 0,
