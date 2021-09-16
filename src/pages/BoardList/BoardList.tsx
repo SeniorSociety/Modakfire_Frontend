@@ -5,6 +5,7 @@ import './BoardList.scss';
 
 function BoardList() {
 	const history = useHistory();
+	const forDelete = '';
 
 	return (
 		<div className="boardWrap">

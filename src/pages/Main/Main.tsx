@@ -7,6 +7,7 @@ import './Main.scss';
 const number: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
 function Main() {
+	const forDelete = '';
 	const history = useHistory();
 	const [galleryInfo, setGalleryInfo] = useState();
 	const [galleryIndex, setGalleryIndex] = useState<number>(0);

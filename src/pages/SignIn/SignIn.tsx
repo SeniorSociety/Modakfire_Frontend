@@ -4,6 +4,8 @@ import KakaoLogin from 'react-kakao-login';
 import './SignIn.scss';
 
 function SignIn() {
+	const forDelete = '';
+
 	const onLoginKakao = (data: any) => {
 		const accessToken = data.response.access_token;
 		const headers = {

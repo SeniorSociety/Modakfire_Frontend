@@ -18,6 +18,7 @@ interface PostData {
 
 function InfiniteScroll(props: any) {
 	const history = useHistory();
+	const forDelete = '';
 
 	const [pageIndex, setPageIndex] = useState<number>(1);
 	const [dataList, setDataList] = useState([
