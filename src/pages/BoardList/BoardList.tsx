@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import InfiniteScroll from '../../components/InfiniteScroll/InfiniteScroll';
-import './boardList.scss';
+import './BoardList.scss';
 
 function BoardList() {
 	const history = useHistory();

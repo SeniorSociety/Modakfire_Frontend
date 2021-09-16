@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '@toast-ui/editor/dist/toastui-editor-viewer.css';
-import './board.scss';
+import './Board.scss';
 import axios from 'axios';
 import Post from './BoardViewer/Post';
 import Comment from './BoardViewer/Comment';
