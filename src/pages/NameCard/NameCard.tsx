@@ -5,6 +5,14 @@ import History from '../../components/History/History';
 import Introduce from '../../components/Introduce/Introduce';
 
 const NameCard = () => {
+	interface userInfoProps {
+		userImage: string;
+		userName: string;
+		userEmail: string;
+		userLocal: string;
+		userSlogan: string;
+	}
+
 	const [userImage, setUserImage] = useState();
 	const [userName, setUserName] = useState();
 	const [userEmail, setUserEmail] = useState();
