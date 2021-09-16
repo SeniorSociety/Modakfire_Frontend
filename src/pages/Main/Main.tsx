@@ -19,7 +19,7 @@ function Main(props: { match: { params: { id: string } } }) {
 	useEffect(() => {
 		const getItems = async (): Promise<void> => {
 			try {
-				const res = await axios.get(`${API.BOARDVIEWER}`);
+				const res = await axios.get(`${API.BOARD}`);
 				const result = res.data.MESSAGE;
 				setGalleryInfo(result);
 			} catch (error) {

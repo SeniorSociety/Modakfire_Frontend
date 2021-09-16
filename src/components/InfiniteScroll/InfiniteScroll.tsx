@@ -44,7 +44,7 @@ function InfiniteScroll(props: any) {
 		try {
 			const res = await axios.get(
 				// `https://www.seso.kr/galleries/${props.match.params.id}?page=${pageIndex}`,
-				`${API.BOARDLIST}?page=${pageIndex}`,
+				`${API.BOARD}?page=1`,
 			);
 			const result = res.data.MESSAGE;
 

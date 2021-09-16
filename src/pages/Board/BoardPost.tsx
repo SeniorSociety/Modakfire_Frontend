@@ -2,12 +2,12 @@ import React, { useState, useRef, useEffect } from 'react';
 import BoardViewer from './BoardViewer';
 import axios from 'axios';
 import { Editor } from '@toast-ui/react-editor';
+import { API } from '../../config';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import './Board.scss';
 
 const BoardPost = ({ history }: any) => {
 	const editorRef = useRef<Editor>(null);
-	const forDelete = '';
 
 	interface Information {
 		title: string | undefined;
@@ -37,7 +37,7 @@ const BoardPost = ({ history }: any) => {
 
 		axios({
 			method: 'post',
-			url: 'https://www.seso.kr/galleries/1',
+			url: `${API.BOARD}/1`,
 			data: form,
 			headers: {
 				Authorization:
@@ -45,7 +45,9 @@ const BoardPost = ({ history }: any) => {
 			},
 		})
 			.then(response => {
-				console.log(response.data.MESSAGE);
+				let POSTING_ID = response.data.POSTING_ID;
+				history.push(`./board-list/${POSTING_ID}`);
+				console.log(response.data);
 			})
 			.catch(error => console.log(error));
 	};
@@ -62,7 +64,7 @@ const BoardPost = ({ history }: any) => {
 					let formData: any = new FormData();
 					formData.append('image', bolb);
 					axios
-						.post('https://www.seso.kr/galleries/images', formData, {
+						.post(`${API.BOARD}/images`, formData, {
 							headers: {
 								Authorization:
 									'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.Te32okoTxCk31WOFbT-LiVhTMcu_5IRPsEum3y930OQ',
@@ -103,7 +105,7 @@ const BoardPost = ({ history }: any) => {
 					}}
 				/>
 			</div>
-			<button className="submitButton" onClick={submitPost}>
+			<button className="submitButton" onClick={submitPost} style={{ marginTop: '20px' }}>
 				게시물 등록
 			</button>
 			<button
@@ -111,7 +113,7 @@ const BoardPost = ({ history }: any) => {
 				onClick={() => {
 					history.push('./board-list');
 				}}
-				style={{ backgroundColor: '#A9AAAC' }}
+				style={{ marginBottom: '10px', backgroundColor: '#A9AAAC' }}
 			>
 				게시판으로 돌아가기
 			</button>
