@@ -5,6 +5,10 @@
 	margin: 5px;
 	border-bottom: 1px solid #ccc;
 
+	&:hover {
+		cursor: pointer;
+	}
+
 	img {
 		width: 70px;
 		height: 70px;

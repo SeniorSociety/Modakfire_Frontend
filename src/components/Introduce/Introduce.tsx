@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import './Introduce.scss';
+import './introduce.scss';
 
 function Introduce() {
 	const edit: string = '';

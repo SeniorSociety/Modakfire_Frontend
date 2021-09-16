@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './infiniteScroll.scss';
 
@@ -15,9 +16,10 @@ interface PostData {
 	user_id: number;
 }
 
-function InfiniteScroll() {
+function InfiniteScroll(props: any) {
+	const history = useHistory();
+
 	const [pageIndex, setPageIndex] = useState<number>(1);
-	const [galleryId, setgalleryId] = useState(1);
 	const [dataList, setDataList] = useState([
 		{
 			id: 0,
@@ -39,7 +41,10 @@ function InfiniteScroll() {
 		if (!pageIndex) return;
 
 		try {
-			const res = await axios.get(`https://www.seso.kr/galleries/${galleryId}?page=${pageIndex}`);
+			const res = await axios.get(
+				// `https://www.seso.kr/galleries/${props.match.params.id}?page=${pageIndex}`,
+				`https://www.seso.kr/galleries/1?page=${pageIndex}`,
+			);
 			const result = res.data.MESSAGE;
 
 			setDataList(prevState => {
@@ -102,6 +107,9 @@ function InfiniteScroll() {
 							key={index}
 							className={`${lastPost && 'last'} post`}
 							ref={lastPost ? target : null}
+							onClick={() => {
+								history.push('./board-viewer');
+							}}
 						>
 							<img src={post.thumbnail} />
 							<article className="postWrap">
