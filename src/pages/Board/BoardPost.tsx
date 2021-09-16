@@ -7,6 +7,7 @@ import './Board.scss';
 
 const BoardPost = ({ history }: any) => {
 	const editorRef = useRef<Editor>(null);
+	const forDelete = '';
 
 	interface Information {
 		title: string | undefined;
