@@ -1,17 +1,19 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './card.scss';
 
-function Card() {
+function Card({ userImage, userName, userSlogan, userEmail, userLocal, edit }) {
 	interface userInfoProps {
 		userImage: string;
 		userName: string;
+		userSlogan: string;
 		userEmail: string;
 		userLocal: string;
-		userSlogan: string;
 	}
 
-	const edit: string = '';
+	interface editProps {
+		edit: boolean;
+	}
+
 	const [mainPic, setMainPic] = useState<string>('');
 
 	function imagePreview(e: any): void {
@@ -24,24 +26,7 @@ function Card() {
 
 	return (
 		<>
-			{edit === 'edit' && (
-				<div className="cardContainer">
-					<div className="leftContainer">
-						<img
-							src="https://burst.shopifycdn.com/photos/laughing-man.jpg?width=373&format=pjpg&exif=0&iptc=0"
-							alt="laughinman"
-						/>
-					</div>
-					<div className="rightContainer">
-						<p className="name">함춘호</p>
-						<p className="title">화양연화, 인생은 끝까지</p>
-						<span>☎ 010-2935-3943</span> <br />
-						<span>⌂ 서울시 과양구 신화동</span> <br />
-						<span>✍︎ bonfire65@gmail.com</span>
-					</div>
-				</div>
-			)}
-			{edit === '' && (
+			{edit ? (
 				<div className="cardContainer">
 					<div className="leftContainer">
 						<input type="File" className="uploadInput" onChange={imagePreview} />
@@ -65,6 +50,22 @@ function Card() {
 						></input>{' '}
 						<br />
 						<input type="text" className="commonText" placeholder="이메일"></input> <br />
+					</div>
+				</div>
+			) : (
+				<div className="cardContainer">
+					<div className="leftContainer">
+						<img
+							src="https://burst.shopifycdn.com/photos/laughing-man.jpg?width=373&format=pjpg&exif=0&iptc=0"
+							alt="laughinman"
+						/>
+					</div>
+					<div className="rightContainer">
+						<p className="name">함춘호</p>
+						<p className="title">화양연화, 인생은 끝까지</p>
+						<span>☎ 010-2935-3943</span> <br />
+						<span>⌂ 서울시 과양구 신화동</span> <br />
+						<span>✍︎ bonfire65@gmail.com</span>
 					</div>
 				</div>
 			)}
