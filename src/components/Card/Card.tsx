@@ -3,6 +3,14 @@ import { useState } from 'react';
 import './Card.scss';
 
 function Card() {
+	interface userInfoProps {
+		userImage: string;
+		userName: string;
+		userEmail: string;
+		userLocal: string;
+		userSlogan: string;
+	}
+
 	const edit: string = '';
 	const [mainPic, setMainPic] = useState<string>('');
 
