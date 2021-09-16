@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import './introduce.scss';
+import './Introduce.scss';
 
 interface editPorps {
 	edit: boolean;

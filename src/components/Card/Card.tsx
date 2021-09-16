@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './card.scss';
+import './Card.scss';
 
 function Card({ userImage, userName, userSlogan, userEmail, userLocal, edit }) {
 	interface userInfoProps {
@@ -10,6 +10,7 @@ function Card({ userImage, userName, userSlogan, userEmail, userLocal, edit }) {
 		userLocal: string;
 	}
 
+	const forDelete = '';
 	interface editProps {
 		edit: boolean;
 	}
