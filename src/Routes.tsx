@@ -6,20 +6,21 @@ import BoardViewer from './pages/Board/BoardViewer';
 import BoardPost from './pages/Board/BoardPost';
 import NameCard from './pages/NameCard/NameCard';
 import Footer from './components/Footer/Footer';
+import SignIn from './pages/SignIn/SignIn';
 
 function Routes() {
 	return (
 		<Router>
-			{/* <Header /> */}
+			<Header />
 			<Switch>
 				<Route exact path="/" component={Main} />
 				<Route exact path="/board-list/:id" component={BoardList} />
 				<Route exact path="/board-post" component={BoardPost} />
-				<Route exact path="/board-viewer" component={BoardViewer} />
-				<Route exact path="/galleries/" component={BoardViewer} />
-				{/* <Route exact path="/users/namecard/:id" component={NameCard} /> */}
+				<Route exact path="/galleries" component={BoardViewer} />
+				<Route exact path="/signin" component={SignIn} />
+				<Route exact path="/users/namecard/:id" component={NameCard} />
 			</Switch>
-			{/* <Footer /> */}
+			<Footer />
 		</Router>
 	);
 }
