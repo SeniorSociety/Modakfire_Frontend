@@ -5,19 +5,13 @@ import History from '../../components/History/History';
 import Introduce from '../../components/Introduce/Introduce';
 
 const NameCard = () => {
-	interface userInfoProps {
-		userImage: string;
-		userName: string;
-		userEmail: string;
-		userLocal: string;
-		userSlogan: string;
-	}
+	const [edit, setEdit] = useState<boolean>(true);
 
 	const [userImage, setUserImage] = useState();
 	const [userName, setUserName] = useState();
+	const [userSlogan, setUserSlogan] = useState();
 	const [userEmail, setUserEmail] = useState();
 	const [userLocal, setUserLocal] = useState();
-	const [userSlogan, setUserSlogan] = useState();
 
 	const [historyYear, setHistoryYear] = useState();
 	const [historyTitle, setHistoryTitle] = useState();
@@ -43,14 +37,15 @@ const NameCard = () => {
 	return (
 		<div>
 			<Card
+				edit={edit}
 				userImage={userImage}
 				userName={userName}
+				userSlogan={userSlogan}
 				userEmail={userEmail}
 				userLocal={userLocal}
-				userSlogan={userSlogan}
 			/>
-			<History />
-			<Introduce />
+			<History edit={edit} />
+			<Introduce edit={edit} />
 		</div>
 	);
 };
