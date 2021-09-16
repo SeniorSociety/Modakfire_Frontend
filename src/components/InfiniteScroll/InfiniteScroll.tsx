@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import './infiniteScroll.scss';
+import './InfiniteScroll.scss';
 
 interface PostData {
 	id: number;

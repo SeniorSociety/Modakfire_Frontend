@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import MainSlider from '../../components/MainSlider/MainSlider';
 import axios from 'axios';
-import './main.scss';
+import './Main.scss';
 
 const number: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 

@@ -3,7 +3,7 @@ import BoardViewer from './BoardViewer';
 import axios from 'axios';
 import { Editor } from '@toast-ui/react-editor';
 import '@toast-ui/editor/dist/toastui-editor.css';
-import './board.scss';
+import './Board.scss';
 
 const BoardPost = ({ history }: any) => {
 	const editorRef = useRef<Editor>(null);
