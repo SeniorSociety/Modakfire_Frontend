@@ -39,10 +39,6 @@ function History({ edit }) {
 		setAddHistory(addHistory.concat(1));
 	}
 
-	function editHistory() {
-		setEdit(!edit);
-	}
-
 	console.log('이력추가 ', histories);
 
 	return (
@@ -95,7 +91,7 @@ function History({ edit }) {
 							value="추 가 하 기"
 							onClick={createHistory}
 						></input>
-						<input type="button" className="add" value="완 료 하 기" onClick={editHistory}></input>
+						<input type="button" className="add" value="완 료 하 기" />
 					</>
 				) : (
 					<>
@@ -115,7 +111,7 @@ function History({ edit }) {
 								</section>
 							);
 						})}
-						<input type="button" className="add" value="추 가 하 기" onClick={editHistory}></input>
+						<input type="button" className="add" value="추 가 하 기" />
 					</>
 				)}
 			</div>
