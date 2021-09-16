@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Card.scss';
 
-function Card({ userImage, userName, userSlogan, userEmail, userLocal, edit }) {
+function Card({ userImage, userName, userSlogan, userEmail, userLocal, edit }: any) {
 	interface userInfoProps {
 		userImage: string;
 		userName: string;

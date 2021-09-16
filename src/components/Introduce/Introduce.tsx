@@ -5,7 +5,7 @@ import './Introduce.scss';
 interface editPorps {
 	edit: boolean;
 }
-function Introduce({ edit }) {
+function Introduce({ edit }: any) {
 	const [contents, setContents] = useState<number>(0);
 
 	function handleCount(e: any): void {
