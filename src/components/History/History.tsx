@@ -8,8 +8,11 @@ interface Inputs {
 	subtitle: string;
 }
 
-function History() {
-	const [edit, setEdit] = useState(true);
+interface editProps {
+	edit: boolean;
+}
+
+function History({ edit }) {
 	const [addHistory, setAddHistory] = useState<number[]>([0]);
 	const [contents, setContents] = useState<Inputs>({
 		id: 0,
