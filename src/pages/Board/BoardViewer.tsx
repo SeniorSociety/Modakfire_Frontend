@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import '@toast-ui/editor/dist/toastui-editor-viewer.css';
-import './Board.scss';
-import axios from 'axios';
 import Post from './BoardViewer/Post';
 import Comment from './BoardViewer/Comment';
+import axios from 'axios';
+import { API } from '../../config';
+import '@toast-ui/editor/dist/toastui-editor-viewer.css';
+import './Board.scss';
 
 function BoardViewer(props: any) {
 	interface PostInfo {
@@ -55,7 +56,7 @@ function BoardViewer(props: any) {
 		if (textContent) {
 			axios({
 				method: 'post',
-				url: 'https://www.seso.kr/galleries/1/2/comments',
+				url: `${API.BOARD}/1/${props.match.params.view_id}/comments`,
 				data: { content: textContent },
 				headers: {
 					Authorization:
@@ -64,15 +65,13 @@ function BoardViewer(props: any) {
 			})
 				.then(response => {
 					axios
-						.get('https://www.seso.kr/galleries/1/2/comments?page=2')
-						// ${props.match.params.id}
+						.get(`${API.BOARD}/1/${props.match.params.view_id}/comments?page=2`)
 						.then(res => {
 							setCommentContent(res.data.MESSAGE);
 						})
 						.catch(error => {
 							console.log(error);
 						});
-					console.log(response.data.MESSAGE);
 				})
 				.catch(error => console.log(error));
 		} else {
@@ -82,9 +81,10 @@ function BoardViewer(props: any) {
 
 	useEffect(() => {
 		axios
-			.get('https://www.seso.kr/galleries/1/2/comments?page=2')
+			.get(`${API.BOARD}/1/${props.match.params.view_id}/comments?page=2`)
 			.then(res => {
 				setCommentContent(res.data.MESSAGE);
+				console.log(res.data);
 			})
 			.catch(error => {
 				console.log(error);
@@ -93,18 +93,15 @@ function BoardViewer(props: any) {
 
 	useEffect(() => {
 		axios
-			.get('https://www.seso.kr/galleries/1/2')
+			.get(`${API.BOARD}/1/${props.match.params.view_id}`)
 			.then(res => {
 				setPostContent(res.data.MESSAGE);
+				console.log(res.data);
 			})
 			.catch(error => {
 				console.log(error);
 			});
 	}, []);
-
-	useEffect(() => {
-		console.log(postContent);
-	}, [postContent]);
 
 	return (
 		<>
