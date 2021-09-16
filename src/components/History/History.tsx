@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'antd/dist/antd.css';
 import './History.scss';
+
 interface Inputs {
 	id?: number;
 	year: string;

@@ -7,11 +7,11 @@ import Introduce from '../../components/Introduce/Introduce';
 const NameCard = () => {
 	const [edit, setEdit] = useState<boolean>(true);
 
-	const [userImage, setUserImage] = useState();
-	const [userName, setUserName] = useState();
-	const [userSlogan, setUserSlogan] = useState();
-	const [userEmail, setUserEmail] = useState();
-	const [userLocal, setUserLocal] = useState();
+	const [userImage, setUserImage] = useState<string>('');
+	const [userName, setUserName] = useState<string>('');
+	const [userSlogan, setUserSlogan] = useState<string>('');
+	const [userEmail, setUserEmail] = useState<string>('');
+	const [userLocal, setUserLocal] = useState<string>('');
 
 	const [historyYear, setHistoryYear] = useState();
 	const [historyTitle, setHistoryTitle] = useState();
@@ -43,9 +43,22 @@ const NameCard = () => {
 				userSlogan={userSlogan}
 				userEmail={userEmail}
 				userLocal={userLocal}
+				setUserImage={setUserImage}
+				setUserName={setUserName}
+				setUserSlogan={setUserSlogan}
+				setUserEmail={setUserEmail}
+				setUserLocal={setUserLocal}
 			/>
-			<History edit={edit} />
-			<Introduce edit={edit} />
+			<History
+				edit={edit}
+				historyYear={historyYear}
+				historyTitle={historyTitle}
+				historySubTitle={historySubtitle}
+				setHistoryYear={setHistoryYear}
+				setHistoryTitle={setHistoryTitle}
+				setHistorySubTitle={setHistorySubtitle}
+			/>
+			<Introduce edit={edit} introduce={introduce} setIntroduce={setIntroduce} />
 		</div>
 	);
 };
