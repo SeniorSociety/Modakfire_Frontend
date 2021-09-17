@@ -34,10 +34,10 @@ const NameCard = () => {
 			})
 			.then(res => {
 				setData(res.data.MESSAGE);
-				console.log(res);
+				// console.log(res);
 			})
 			.catch(error => {
-				console.log(error);
+				// console.log(error);
 			});
 	}, []);
 
@@ -66,14 +66,14 @@ const NameCard = () => {
 			},
 		};
 		axios.post(API.NAMECARD, formData, header).then(res => {
-			history.push(`API.NAMECARD`);
+			history.push('/namecard');
 			setEdit(false);
 		});
 
 		alert('명함제작이 완료되었습니다');
 	}
 
-	console.log(userImage);
+	// console.log(userImage);
 	return (
 		<div>
 			<Card
