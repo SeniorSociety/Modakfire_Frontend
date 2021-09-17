@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
+import { API } from '../../config';
 import axios from 'axios';
 import './InfiniteScroll.scss';
 
@@ -44,7 +44,7 @@ function InfiniteScroll(props: any) {
 		try {
 			const res = await axios.get(
 				// `https://www.seso.kr/galleries/${props.match.params.id}?page=${pageIndex}`,
-				`https://www.seso.kr/galleries/1?page=${pageIndex}`,
+				`${API.BOARDLIST}?page=${pageIndex}`,
 			);
 			const result = res.data.MESSAGE;
 
