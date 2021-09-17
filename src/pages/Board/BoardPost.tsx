@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
 import BoardViewer from './BoardViewer';
 import axios from 'axios';
 import { Editor } from '@toast-ui/react-editor';
@@ -6,7 +7,7 @@ import { API } from '../../config';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import './Board.scss';
 
-const BoardPost = ({ history }: any) => {
+const BoardPost = ({ history, props }: any) => {
 	const editorRef = useRef<Editor>(null);
 
 	interface Information {
@@ -46,8 +47,7 @@ const BoardPost = ({ history }: any) => {
 		})
 			.then(response => {
 				let POSTING_ID = response.data.POSTING_ID;
-				history.push(`./board-viewer/${POSTING_ID}`);
-				console.log(response.data);
+				history.push(`/board-viewer/${POSTING_ID}`);
 			})
 			.catch(error => console.log(error));
 	};
@@ -81,6 +81,7 @@ const BoardPost = ({ history }: any) => {
 		return () => {};
 	}, [editorRef]);
 
+	console.log(history);
 	return (
 		<div className="BoardList">
 			<div className="formWrapper">
@@ -108,7 +109,7 @@ const BoardPost = ({ history }: any) => {
 			<button className="submitButton" onClick={submitPost} style={{ marginTop: '20px' }}>
 				게시물 등록
 			</button>
-			<button
+			{/* <button
 				className="submitButton"
 				onClick={() => {
 					history.push('./board-list');
@@ -116,10 +117,10 @@ const BoardPost = ({ history }: any) => {
 				style={{ marginBottom: '10px', backgroundColor: '#A9AAAC' }}
 			>
 				게시판으로 돌아가기
-			</button>
+			</button> */}
 			{3 > 5 && <BoardViewer viewContent={viewContent} />}
 		</div>
 	);
 };
 
-export default BoardPost;
+export default withRouter(BoardPost);

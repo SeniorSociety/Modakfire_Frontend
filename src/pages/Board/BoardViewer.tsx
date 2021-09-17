@@ -56,7 +56,7 @@ function BoardViewer(props: any) {
 		if (textContent) {
 			axios({
 				method: 'post',
-				url: `${API.BOARD}/1/${props.match.params.view_id}/comments`,
+				url: `${API.BOARD}/${props.match.params.view_id}/comments`,
 				data: { content: textContent },
 				headers: {
 					Authorization:
@@ -65,7 +65,7 @@ function BoardViewer(props: any) {
 			})
 				.then(response => {
 					axios
-						.get(`${API.BOARD}/1/${props.match.params.view_id}/comments?page=2`)
+						.get(`${API.BOARD}/${props.match.params.view_id}/comments?page=2`)
 						.then(res => {
 							setCommentContent(res.data.MESSAGE);
 						})
@@ -81,7 +81,7 @@ function BoardViewer(props: any) {
 
 	useEffect(() => {
 		axios
-			.get(`${API.BOARD}/1/${props.match.params.view_id}/comments?page=2`)
+			.get(`${API.BOARD}/${props.match.params.view_id}/comments?page=2`)
 			.then(res => {
 				setCommentContent(res.data.MESSAGE);
 				console.log(res.data);
@@ -93,7 +93,7 @@ function BoardViewer(props: any) {
 
 	useEffect(() => {
 		axios
-			.get(`${API.BOARD}/1/${props.match.params.view_id}`)
+			.get(`${API.BOARD}/${props.match.params.view_id}`)
 			.then(res => {
 				setPostContent(res.data.MESSAGE);
 				console.log(res.data);
