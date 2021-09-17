@@ -18,7 +18,7 @@ function Routes() {
 				<Route exact path="/board-post" component={BoardPost} />
 				<Route exact path="/board-viewer/:view_id" component={BoardViewer} />
 				<Route exact path="/signin" component={SignIn} />
-				<Route exact path="/users/namecard/:id" component={NameCard} />
+				<Route exact path="/namecard" component={NameCard} />
 			</Switch>
 			<Footer />
 		</Router>

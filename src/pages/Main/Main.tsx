@@ -5,8 +5,7 @@ import { API } from '../../config';
 import axios from 'axios';
 import './Main.scss';
 
-function Main(props: { match: { params: { id: string } } }) {
-	const { id } = props.match.params;
+function Main() {
 	const history = useHistory();
 	const [galleryInfo, setGalleryInfo] = useState([
 		{
@@ -19,7 +18,11 @@ function Main(props: { match: { params: { id: string } } }) {
 	useEffect(() => {
 		const getItems = async (): Promise<void> => {
 			try {
+<<<<<<< HEAD
 				const res = await axios.get(`${API.BOARD}`);
+=======
+				const res = await axios.get(`${API.MAIN}`);
+>>>>>>> 410e192 ([namecard] Modify : post done)
 				const result = res.data.MESSAGE;
 				setGalleryInfo(result);
 			} catch (error) {
@@ -39,7 +42,7 @@ function Main(props: { match: { params: { id: string } } }) {
 							className="menu"
 							key={info.gallery_id}
 							onClick={() => {
-								history.push(`/galleries/${id}`);
+								history.push(`/galleries/${info.gallery_id}`);
 							}}
 						>
 							<img src={info.gallery_image} alt="*" className="menuImage" />
