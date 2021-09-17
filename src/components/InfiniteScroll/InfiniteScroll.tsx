@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { API } from '../../config';
 import axios from 'axios';
 import './InfiniteScroll.scss';
@@ -16,8 +16,10 @@ interface PostData {
 	user_id: number;
 }
 
-function InfiniteScroll(props: any) {
+function InfiniteScroll() {
 	const history = useHistory();
+	const location = useLocation();
+	const id = location.pathname.split('/')[2];
 
 	const [pageIndex, setPageIndex] = useState<number>(1);
 	const [dataList, setDataList] = useState([
@@ -41,7 +43,7 @@ function InfiniteScroll(props: any) {
 		if (!pageIndex) return;
 
 		try {
-			const res = await axios.get(`${API.BOARD}/${props.match.params.id}?page=${pageIndex}`);
+			const res = await axios.get(`${API.GALLERIES}/${id}?page=${pageIndex}`);
 			const result = res.data.MESSAGE;
 
 			setDataList(prevState => {
@@ -66,7 +68,6 @@ function InfiniteScroll(props: any) {
 				if (!entry.isIntersecting) {
 					return;
 				}
-
 				getItems(pageIndex);
 			});
 		};
@@ -105,10 +106,10 @@ function InfiniteScroll(props: any) {
 							className={`${lastPost && 'last'} post`}
 							ref={lastPost ? target : null}
 							onClick={() => {
-								history.push(`${API.BOARD}`);
+								history.push(`/board-viewer/${post.id}`);
 							}}
 						>
-							<img src={post.thumbnail} />
+							<img alt="thumbnail" src={post.thumbnail} />
 							<article className="postWrap">
 								<h2 className="postTitle">{post.title}</h2>
 								<div className="idTimeCount">

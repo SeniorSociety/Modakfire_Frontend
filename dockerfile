@@ -1,18 +1,22 @@
-FROM node:14.17.6-alpine3.11
+FROM nginx
 
+# work dir 생성
 WORKDIR /app
 
-COPY package.json /app/package.json
+# work dir 에 build 폴더 생성 /app/build
+RUN mkdir ./build
 
-RUN npm install && npm cache clean --force
+# host pc의 현재경로의 build 폴더를 workdir 의 build 폴더로 복사
+ADD ./build ./build
 
-ENV PATH=/app/node_modules/.bin:$PATH
+# nginx 의 default.conf 를 삭제
+RUN rm /etc/nginx/conf.d/default.conf
 
-ENV NODE_ENV development
-ENV TZ = Asia/Seoul
+# host pc 의 nginx.conf 를 아래 경로에 복사
+COPY ./nginx.conf /etc/nginx/conf.d
 
-COPY . .
+# 80 포트 오픈
+EXPOSE 80
 
-EXPOSE 3000
-
-CMD ["npm", "start"]
+# nginx 실행
+CMD ["nginx", "-g", "daemon off;"]
