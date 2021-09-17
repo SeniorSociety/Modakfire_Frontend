@@ -18,7 +18,6 @@ interface PostData {
 
 function InfiniteScroll(props: any) {
 	const history = useHistory();
-	const forDelete = '';
 
 	const [pageIndex, setPageIndex] = useState<number>(1);
 	const [dataList, setDataList] = useState([
@@ -42,14 +41,7 @@ function InfiniteScroll(props: any) {
 		if (!pageIndex) return;
 
 		try {
-			const res = await axios.get(
-				// `https://www.seso.kr/galleries/${props.match.params.id}?page=${pageIndex}`,
-<<<<<<< HEAD
-				`${API.BOARD}?page=1`,
-=======
-				`${API.BOARD}?page=${pageIndex}`,
->>>>>>> 410e192 ([namecard] Modify : post done)
-			);
+			const res = await axios.get(`${API.BOARD}/${props.match.params.id}?page=${pageIndex}`);
 			const result = res.data.MESSAGE;
 
 			setDataList(prevState => {
@@ -113,7 +105,7 @@ function InfiniteScroll(props: any) {
 							className={`${lastPost && 'last'} post`}
 							ref={lastPost ? target : null}
 							onClick={() => {
-								history.push('./board-viewer');
+								history.push(`${API.BOARD}`);
 							}}
 						>
 							<img src={post.thumbnail} />
