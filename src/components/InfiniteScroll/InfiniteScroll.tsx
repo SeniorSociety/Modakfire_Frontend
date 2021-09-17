@@ -16,7 +16,7 @@ interface PostData {
 	user_id: number;
 }
 
-function InfiniteScroll(props: any) {
+function InfiniteScroll(props) {
 	const history = useHistory();
 
 	const [pageIndex, setPageIndex] = useState<number>(1);
@@ -66,7 +66,6 @@ function InfiniteScroll(props: any) {
 				if (!entry.isIntersecting) {
 					return;
 				}
-
 				getItems(pageIndex);
 			});
 		};

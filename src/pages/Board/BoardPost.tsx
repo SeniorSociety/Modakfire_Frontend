@@ -46,7 +46,7 @@ const BoardPost = ({ history }: any) => {
 		})
 			.then(response => {
 				let POSTING_ID = response.data.POSTING_ID;
-				history.push(`./board-viewer/${POSTING_ID}`);
+				history.push(`/board-viewer/${POSTING_ID}`);
 				console.log(response.data);
 			})
 			.catch(error => console.log(error));
@@ -108,7 +108,7 @@ const BoardPost = ({ history }: any) => {
 			<button className="submitButton" onClick={submitPost} style={{ marginTop: '20px' }}>
 				게시물 등록
 			</button>
-			<button
+			{/* <button
 				className="submitButton"
 				onClick={() => {
 					history.push('./board-list');
@@ -116,7 +116,7 @@ const BoardPost = ({ history }: any) => {
 				style={{ marginBottom: '10px', backgroundColor: '#A9AAAC' }}
 			>
 				게시판으로 돌아가기
-			</button>
+			</button> */}
 			{3 > 5 && <BoardViewer viewContent={viewContent} />}
 		</div>
 	);
