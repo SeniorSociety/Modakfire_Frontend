@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import 'antd/dist/antd.css';
 import './History.scss';
 
@@ -11,36 +11,30 @@ interface Inputs {
 
 interface editProps {
 	edit: boolean;
+	data: any;
+	setHistoryYear: () => string;
+	setHistoryTitle: () => string;
+	setHistorySubTitle: () => string;
 }
 
-function History({ edit }: any) {
+function History({ edit, data, setHistoryYear, setHistoryTitle, setHistorySubTitle }) {
 	const [addHistory, setAddHistory] = useState<number[]>([0]);
-	const [contents, setContents] = useState<Inputs>({
-		id: 0,
-		year: '',
-		title: '',
-		subtitle: '',
-	});
-
 	const [histories, setHistories] = useState<any[]>([]);
 
-	const onChangeHandler = (e: any) => {
-		const { name, value } = e.target;
-		setContents({ ...contents, [name]: value });
-	};
+	const historyYear = useRef<HTMLInputElement>();
+	const historyTitle = useRef<HTMLInputElement>();
+	const historySubTitle = useRef<HTMLInputElement>();
 
-	function createHistory(): void {
-		const history = {
-			year: contents.year,
-			title: contents.title,
-			subtitle: contents.subtitle,
-		};
-		setHistories([...histories, history]);
-		setContents({ year: '', title: '', subtitle: '' });
+	function createHistory(e: any): void {
+		// console.log('year', historyYear.current.value);
+		// console.log('title', historyTitle.current.value);
+		// console.log('subtitle', historySubTitle.current.value);
+		const { value } = e.target;
+		setHistoryYear(prev => prev.concat(historyYear.current.value));
+		setHistoryTitle(prev => prev.concat(historyTitle.current.value));
+		setHistorySubTitle(prev => prev.concat(historySubTitle.current.value));
 		setAddHistory(addHistory.concat(1));
 	}
-
-	console.log('이력추가 ', histories);
 
 	return (
 		<>
@@ -62,8 +56,8 @@ function History({ edit }: any) {
 												type="text"
 												className="yearInput"
 												placeholder="1997"
-												onChange={onChangeHandler}
-											></input>
+												ref={historyYear}
+											/>
 										</div>
 										<div className="yearIcon"></div>
 									</div>
@@ -73,26 +67,20 @@ function History({ edit }: any) {
 											type="text"
 											className="title"
 											placeholder="예시) 교장선생님"
-											onChange={onChangeHandler}
+											ref={historyTitle}
 										/>
 										<input
 											name="subtitle"
 											type="text"
 											className="subtitle"
 											placeholder="예시) 시소중학교 마포구 서울시"
-											onChange={onChangeHandler}
+											ref={historySubTitle}
 										/>
 									</div>
 								</section>
 							);
 						})}
-						<input
-							type="button"
-							className="add"
-							value="추 가 하 기"
-							onClick={createHistory}
-						></input>
-						<input type="button" className="add" value="완 료 하 기" />
+						<input type="button" className="add" value="추 가 하 기" onClick={createHistory} />
 					</>
 				) : (
 					<>
@@ -101,13 +89,13 @@ function History({ edit }: any) {
 								<section key={index} className="workContainer">
 									<div className="leftContainer">
 										<div className="yearContainer">
-											<span>{history.year}</span>
+											<span>{data.historyYear[index]}</span>
 										</div>
 										<div className="yearIcon"></div>
 									</div>
 									<div className="rightContainer">
-										<div className="title">{history.title}</div>
-										<div className="subtitle">{history.subtitle}</div>
+										<div className="title">{data.historyTitle[index]}</div>
+										<div className="subtitle">{data.historySubtitle[index]}</div>
 									</div>
 								</section>
 							);
