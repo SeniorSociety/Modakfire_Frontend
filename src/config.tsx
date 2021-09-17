@@ -1,4 +1,5 @@
-const BASE_URL = 'internal-RealALB-2052302361.ap-northeast-2.elb.amazonaws.com';
+// const BASE_URL = 'internal-RealALB-2052302361.ap-northeast-2.elb.amazonaws.com';
+const BASE_URL = 'http://testalb-647104143.ap-northeast-2.elb.amazonaws.com';
 
 export const API = {
 	SERVER: `${BASE_URL}`,
