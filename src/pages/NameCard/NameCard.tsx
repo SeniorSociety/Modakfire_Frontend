@@ -26,7 +26,7 @@ const NameCard = () => {
 
 	useEffect(() => {
 		axios
-			.get('http://10.58.5.153:8000/users/namecard', {
+			.get(API.NAMECARD, {
 				headers: {
 					Authorization:
 						'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.Te32okoTxCk31WOFbT-LiVhTMcu_5IRPsEum3y930OQ',
@@ -65,15 +65,12 @@ const NameCard = () => {
 				'Content-Type': 'multipart/form-data',
 			},
 		};
-		axios.post('http://10.58.5.153:8000/users/namecard', formData, header).then(res => {
-			history.push(`http://10.58.5.153:8000/users/namecard`);
+		axios.post(API.NAMECARD, formData, header).then(res => {
+			history.push(`API.NAMECARD`);
 			setEdit(false);
 		});
 
 		alert('명함제작이 완료되었습니다');
-		console.log('namecard year', historyYear);
-		console.log('namecard title', historyTitle);
-		console.log('namecard subtitle', historySubtitle);
 	}
 
 	console.log(userImage);
