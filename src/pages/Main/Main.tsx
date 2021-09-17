@@ -18,11 +18,7 @@ function Main() {
 	useEffect(() => {
 		const getItems = async (): Promise<void> => {
 			try {
-<<<<<<< HEAD
-				const res = await axios.get(`${API.BOARD}`);
-=======
 				const res = await axios.get(`${API.MAIN}`);
->>>>>>> 410e192 ([namecard] Modify : post done)
 				const result = res.data.MESSAGE;
 				setGalleryInfo(result);
 			} catch (error) {
