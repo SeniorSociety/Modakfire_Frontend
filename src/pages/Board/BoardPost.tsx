@@ -46,7 +46,7 @@ const BoardPost = ({ history }: any) => {
 		})
 			.then(response => {
 				let POSTING_ID = response.data.POSTING_ID;
-				history.push(`./board-list/${POSTING_ID}`);
+				history.push(`./board-viewer/${POSTING_ID}`);
 				console.log(response.data);
 			})
 			.catch(error => console.log(error));
