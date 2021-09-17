@@ -35,7 +35,7 @@ function Introduce({ edit, handleUploadData, introduce, setIntroduce }: editProp
 					</section>
 					<input
 						type="button"
-						className="post"
+						className="introducePost"
 						value="작  성  완  료"
 						onClick={(e: any) => handleUploadData(e)}
 					/>

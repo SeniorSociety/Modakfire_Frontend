@@ -10,7 +10,7 @@ function BoardList() {
 		<div className="boardWrap">
 			<div className="buttonWrap">
 				<button className="like btn">즐겨찾기 추가</button>
-				<button className="write btn" onClick={() => history.push('./board-post')}>
+				<button className="write btn" onClick={() => history.push(`/board-post`)}>
 					게시글 작성하기
 				</button>
 			</div>

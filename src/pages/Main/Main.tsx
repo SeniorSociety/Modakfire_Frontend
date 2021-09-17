@@ -18,7 +18,7 @@ function Main() {
 	useEffect(() => {
 		const getItems = async (): Promise<void> => {
 			try {
-				const res = await axios.get(`${API.MAIN}`);
+				const res = await axios.get(API.GALLERIES);
 				const result = res.data.MESSAGE;
 				setGalleryInfo(result);
 			} catch (error) {
@@ -38,7 +38,7 @@ function Main() {
 							className="menu"
 							key={info.gallery_id}
 							onClick={() => {
-								history.push(`/galleries/${info.gallery_id}`);
+								history.push(`/board-list/${info.gallery_id}`);
 							}}
 						>
 							<img src={info.gallery_image} alt="*" className="menuImage" />
