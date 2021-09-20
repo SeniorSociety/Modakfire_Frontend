@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
 import BoardViewer from './BoardViewer';
 import axios from 'axios';
 import { Editor } from '@toast-ui/react-editor';
@@ -6,7 +7,7 @@ import { API } from '../../config';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import './Board.scss';
 
-const BoardPost = ({ history }: any) => {
+const BoardPost = ({ history, props }: any) => {
 	const editorRef = useRef<Editor>(null);
 
 	interface Information {
@@ -47,7 +48,6 @@ const BoardPost = ({ history }: any) => {
 			.then(response => {
 				let POSTING_ID = response.data.POSTING_ID;
 				history.push(`/board-viewer/${POSTING_ID}`);
-				console.log(response.data);
 			})
 			.catch(error => console.log(error));
 	};
@@ -81,6 +81,7 @@ const BoardPost = ({ history }: any) => {
 		return () => {};
 	}, [editorRef]);
 
+	console.log(history);
 	return (
 		<div className="BoardList">
 			<div className="formWrapper">
@@ -122,4 +123,4 @@ const BoardPost = ({ history }: any) => {
 	);
 };
 
-export default BoardPost;
+export default withRouter(BoardPost);
