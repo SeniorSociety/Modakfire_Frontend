@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { API } from '../../config';
 import axios from 'axios';
 import './InfiniteScroll.scss';
@@ -18,6 +18,8 @@ interface PostData {
 
 function InfiniteScroll(props) {
 	const history = useHistory();
+	const location = useLocation();
+	const id = location.pathname.split('/')[2];
 
 	const [pageIndex, setPageIndex] = useState<number>(1);
 	const [dataList, setDataList] = useState([
@@ -41,7 +43,7 @@ function InfiniteScroll(props) {
 		if (!pageIndex) return;
 
 		try {
-			const res = await axios.get(`${API.BOARD}/${props.match.params.id}?page=${pageIndex}`);
+			const res = await axios.get(`${API.BOARD}/${id}?page=${pageIndex}`);
 			const result = res.data.MESSAGE;
 
 			setDataList(prevState => {
@@ -78,7 +80,7 @@ function InfiniteScroll(props) {
 
 		return () => io.disconnect();
 	}, [dataList]);
-
+	// console.log('params!!!!!!', props);
 	return (
 		<div className="wrapper">
 			<section className="post-grid" ref={viewport}>
@@ -104,7 +106,7 @@ function InfiniteScroll(props) {
 							className={`${lastPost && 'last'} post`}
 							ref={lastPost ? target : null}
 							onClick={() => {
-								history.push(`${API.BOARD}`);
+								history.push(`/board-viewer/${post.id}`);
 							}}
 						>
 							<img src={post.thumbnail} />
