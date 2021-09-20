@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './Header.scss';
 
 function Header() {
-	const test: string = 'login';
+	const [isLogin, setIsLogin] = useState(false);
 	const history = useHistory();
 
 	function moveToMain(): void {
@@ -23,30 +23,16 @@ function Header() {
 			<div className="logo" onClick={moveToMain}>
 				<span>모닥불</span>
 			</div>
-			{test === 'login' && (
+			{!isLogin ? (
 				<>
-					<div className="signIn" onClick={moveToLogin}>
-						<span>회원가입</span>
-					</div>
 					<div className="logIn" onClick={moveToLogin}>
 						<span>로그인</span>
 					</div>
 				</>
-			)}
-			{test === 'logout' && (
+			) : (
 				<>
 					<div className="signIn" onClick={moveToNamecard}>
-						<span>명함제작</span>
-					</div>
-					<div className="logIn" onClick={moveToLogin}>
-						<span>로그아웃</span>
-					</div>
-				</>
-			)}
-			{test === 'namecard' && (
-				<>
-					<div className="signIn" onClick={moveToNamecard}>
-						<span>명함보기</span>
+						<span>네임카드</span>
 					</div>
 					<div className="logIn" onClick={moveToLogin}>
 						<span>로그아웃</span>
