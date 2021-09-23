@@ -1,11 +1,15 @@
-{ MESSAGE : {[
-  id: 0,
-  title: 'abcd',
-  thumbnail: '',
-  view_count: 0,
-  created_at: '',
-  updated_at: '',
-  comment_count: 0,
-  user_nickname: '',
-  user_id: 0,
-]}
+{
+	"MESSAGE": [
+		{
+			"id": 0,
+			"title": "abcd",
+			"thumbnail": "",
+			"view_count": 0,
+			"created_at": "",
+			"updated_at": "",
+			"comment_count": 0,
+			"user_nickname": "",
+			"user_id": 0
+		}
+	]
+}
