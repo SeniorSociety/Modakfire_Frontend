@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import './Header.scss';
 
 function Header() {
-	const [isLogin, setIsLogin] = useState(false);
+	const [isLogin, setIsLogin] = useState(true);
 	const history = useHistory();
 
 	function moveToMain(): void {
@@ -21,7 +21,7 @@ function Header() {
 	return (
 		<nav className="headerContainer">
 			<div className="logo" onClick={moveToMain}>
-				<span>모닥불</span>
+				<span>홈버튼</span>
 			</div>
 			{!isLogin ? (
 				<>
@@ -32,7 +32,7 @@ function Header() {
 			) : (
 				<>
 					<div className="signIn" onClick={moveToNamecard}>
-						<span>네임카드</span>
+						<span>내 프로필</span>
 					</div>
 					<div className="logIn" onClick={moveToLogin}>
 						<span>로그아웃</span>
