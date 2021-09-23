@@ -1,0 +1,11 @@
+.footerContainer {
+	display: flex;
+	flex-direction: column;
+	padding: 30px;
+	background: lightgrey;
+
+	span {
+		margin-top: 5px;
+		font-weight: 300;
+	}
+}
