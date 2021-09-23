@@ -1,13 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
-import BoardViewer from './BoardViewer';
+import { useHistory } from 'react-router-dom';
+// import BoardViewer from './BoardViewer';
 import axios from 'axios';
 import { Editor } from '@toast-ui/react-editor';
 import { API } from '../../config';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import './Board.scss';
 
-const BoardPost = ({ history, props }: any) => {
+const BoardPost = () => {
+	const history = useHistory();
 	const editorRef = useRef<Editor>(null);
 
 	interface Information {
@@ -53,10 +54,6 @@ const BoardPost = ({ history, props }: any) => {
 	};
 
 	useEffect(() => {
-		console.log(moveContent);
-	}, [moveContent]);
-
-	useEffect(() => {
 		if (editorRef.current) {
 			editorRef.current.getInstance().removeHook('addImageBlobHook');
 			editorRef.current.getInstance().addHook('addImageBlobHook', (bolb, callback) => {
@@ -72,7 +69,6 @@ const BoardPost = ({ history, props }: any) => {
 							},
 						})
 						.then(response => {
-							console.log('성공');
 							callback(response.data.MESSAGE, 'alt text');
 						});
 				})();
@@ -81,7 +77,6 @@ const BoardPost = ({ history, props }: any) => {
 		return () => {};
 	}, [editorRef]);
 
-	console.log(history);
 	return (
 		<div className="BoardList">
 			<div className="formWrapper">
@@ -118,9 +113,9 @@ const BoardPost = ({ history, props }: any) => {
 			>
 				게시판으로 돌아가기
 			</button> */}
-			{3 > 5 && <BoardViewer viewContent={viewContent} />}
+			{/* {3 > 5 && <BoardViewer viewContent={viewContent} />} */}
 		</div>
 	);
 };
 
-export default withRouter(BoardPost);
+export default BoardPost;

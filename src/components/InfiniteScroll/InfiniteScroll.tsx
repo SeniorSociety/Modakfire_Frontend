@@ -16,7 +16,7 @@ interface PostData {
 	user_id: number;
 }
 
-function InfiniteScroll(props) {
+function InfiniteScroll() {
 	const history = useHistory();
 	const location = useLocation();
 	const id = location.pathname.split('/')[2];
@@ -80,7 +80,7 @@ function InfiniteScroll(props) {
 
 		return () => io.disconnect();
 	}, [dataList]);
-	// console.log('params!!!!!!', props);
+
 	return (
 		<div className="wrapper">
 			<section className="post-grid" ref={viewport}>
@@ -109,7 +109,7 @@ function InfiniteScroll(props) {
 								history.push(`/board-viewer/${post.id}`);
 							}}
 						>
-							<img src={post.thumbnail} />
+							<img alt="thumbnail" src={post.thumbnail} />
 							<article className="postWrap">
 								<h2 className="postTitle">{post.title}</h2>
 								<div className="idTimeCount">

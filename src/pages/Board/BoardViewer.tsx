@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Post from './BoardViewer/Post';
 import Comment from './BoardViewer/Comment';
 import axios from 'axios';
@@ -6,7 +7,9 @@ import { API } from '../../config';
 import '@toast-ui/editor/dist/toastui-editor-viewer.css';
 import './Board.scss';
 
-function BoardViewer(props: any) {
+function BoardViewer() {
+	const { view_id }: any = useParams();
+
 	interface PostInfo {
 		title: string;
 		content: string;
@@ -56,7 +59,7 @@ function BoardViewer(props: any) {
 		if (textContent) {
 			axios({
 				method: 'post',
-				url: `${API.BOARD}/${props.match.params.view_id}/comments`,
+				url: `${API.BOARD}/${view_id}/comments`,
 				data: { content: textContent },
 				headers: {
 					Authorization:
@@ -65,7 +68,7 @@ function BoardViewer(props: any) {
 			})
 				.then(response => {
 					axios
-						.get(`${API.BOARD}/${props.match.params.view_id}/comments?page=2`)
+						.get(`${API.BOARD}/${view_id}/comments?page=2`)
 						.then(res => {
 							setCommentContent(res.data.MESSAGE);
 						})
@@ -81,10 +84,9 @@ function BoardViewer(props: any) {
 
 	useEffect(() => {
 		axios
-			.get(`${API.BOARD}/${props.match.params.view_id}/comments?page=2`)
+			.get(`${API.BOARD}/${view_id}/comments?page=2`)
 			.then(res => {
 				setCommentContent(res.data.MESSAGE);
-				console.log(res.data);
 			})
 			.catch(error => {
 				console.log(error);
@@ -93,10 +95,9 @@ function BoardViewer(props: any) {
 
 	useEffect(() => {
 		axios
-			.get(`${API.BOARD}/${props.match.params.view_id}`)
+			.get(`${API.BOARD}/${view_id}`)
 			.then(res => {
 				setPostContent(res.data.MESSAGE);
-				console.log(res.data);
 			})
 			.catch(error => {
 				console.log(error);

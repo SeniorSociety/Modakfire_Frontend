@@ -1,12 +1,11 @@
 import React from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import InfiniteScroll from '../../components/InfiniteScroll/InfiniteScroll';
 import './BoardList.scss';
 
 function BoardList() {
 	const history = useHistory();
-	// const location = useLocation();
-	// const id = location.pathname.split('/')[2];
+
 	return (
 		<div className="boardWrap">
 			<div className="buttonWrap">
