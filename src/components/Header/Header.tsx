@@ -15,7 +15,7 @@ function Header() {
 	}
 
 	function moveToNamecard(): void {
-		history.push('/namecard');
+		history.push('/profile');
 	}
 
 	return (

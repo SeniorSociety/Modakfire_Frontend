@@ -60,6 +60,5 @@
 		"eslint-plugin-prettier": "^4.0.0",
 		"eslint-plugin-react": "^7.25.1",
 		"prettier": "^2.4.0"
-	},
-	"proxy": "http://internal-BACK-Internal-ALB-1927362478.ap-northeast-2.elb.amazonaws.com"
+	}
 }
