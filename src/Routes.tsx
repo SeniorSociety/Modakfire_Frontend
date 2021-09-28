@@ -19,6 +19,7 @@ function Routes() {
 				<Route exact path="/board-viewer/:view_id" component={BoardViewer} />
 				<Route exact path="/signin" component={SignIn} />
 				<Route exact path="/profile" component={NameCard} />
+				<Route path="*" component={Main} />
 			</Switch>
 			<Footer />
 		</Router>
