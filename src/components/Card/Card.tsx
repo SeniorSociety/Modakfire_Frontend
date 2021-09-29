@@ -3,19 +3,17 @@ import './Card.scss';
 
 interface userInfoProps {
 	data: any;
-	userImage: string;
-	setUserImage: (userImage: string) => void;
-	setUserName: (userName: string) => void;
-	setUserSlogan: (userSlogan: string) => void;
-	setUserEmail: (userEmail: string) => void;
-	setUserLocal: (userLocal: string) => void;
+	setUserImage?: (userImage: string) => void;
+	setUserName?: (userName: string) => void;
+	setUserSlogan?: (userSlogan: string) => void;
+	setUserEmail?: (userEmail: string) => void;
+	setUserLocal?: (userLocal: string) => void;
 	edit: boolean;
 }
 
 function Card({
 	data,
 	setUserImage,
-	userImage,
 	setUserName,
 	setUserSlogan,
 	setUserEmail,
@@ -34,6 +32,41 @@ function Card({
 		Array.from(e.target.files).map((file: any) => URL.revokeObjectURL(file));
 	}
 
+	const CARD_INPUT_VALUE = [
+		{
+			type: 'text',
+			className: 'nameText',
+			placeholder: '이름',
+			onChange: e => {
+				setUserName(e.target.value);
+			},
+		},
+		{
+			type: 'text',
+			className: 'titleText',
+			placeholder: '좌우명',
+			onChange: e => {
+				setUserSlogan(e.target.value);
+			},
+		},
+		{
+			type: 'text',
+			className: 'commonText',
+			placeholder: '서울시 마포구 망원동',
+			onChange: e => {
+				setUserLocal(e.target.value);
+			},
+		},
+		{
+			type: 'text',
+			className: 'commonText',
+			placeholder: '이메일',
+			onChange: e => {
+				setUserEmail(e.target.value);
+			},
+		},
+	];
+
 	return (
 		<>
 			{edit ? (
@@ -50,41 +83,16 @@ function Card({
 						/>
 					</div>
 					<div className="rightContainer">
-						<input
-							type="text"
-							className="nameText"
-							placeholder="이름"
-							onChange={e => {
-								setUserName(e.target.value);
-							}}
-						/>
-						<input
-							type="text"
-							className="titleText"
-							placeholder="좌우명"
-							onChange={e => {
-								setUserSlogan(e.target.value);
-							}}
-						/>
-						<br />
-						<input
-							type="text"
-							className="commonText"
-							placeholder="서울시 마포구 망원동"
-							onChange={e => {
-								setUserLocal(e.target.value);
-							}}
-						/>
-						<br />
-						<input
-							type="text"
-							className="commonText"
-							placeholder="이메일"
-							onChange={e => {
-								setUserEmail(e.target.value);
-							}}
-						/>
-						<br />
+						{CARD_INPUT_VALUE.map(el => {
+							return (
+								<input
+									type={el.type}
+									className={el.className}
+									placeholder={el.placeholder}
+									onChange={el.onChange}
+								/>
+							);
+						})}
 					</div>
 				</div>
 			) : (
@@ -95,8 +103,8 @@ function Card({
 					<div className="rightContainer">
 						<p className="name">{data.userName}</p>
 						<p className="title">{data.userSlogan}</p>
-						<span>⌂ {data.userLocal}</span> <br />
-						<span>✍︎ {data.userEmail}</span>
+						<span>{data.userLocal}</span>
+						<span>{data.userEmail}</span>
 					</div>
 				</div>
 			)}

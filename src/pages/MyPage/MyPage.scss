@@ -1,0 +1,79 @@
+.myPageBody {
+	margin: 70px 0 20px;
+	letter-spacing: 1.5px;
+
+	.bio {
+		padding: 0 40px;
+
+		.rowFlex {
+			display: flex;
+			align-items: center;
+
+			img {
+				width: 18vw;
+				height: 20vw;
+				border-radius: 100%;
+			}
+
+			.contacts {
+				margin-left: 20px;
+				font-size: 0.6rem;
+			}
+		}
+
+		.bioInfo {
+			display: flex;
+			align-items: center;
+			margin-top: 20px;
+
+			.name {
+				font-size: 1.5rem;
+				font-weight: bold;
+				letter-spacing: 2px;
+				opacity: 0.7;
+			}
+
+			.age {
+				margin-left: 10px;
+				color: #aaa;
+				font-size: 1.2rem;
+				font-weight: 300;
+			}
+		}
+
+		.motto {
+			margin: 50px 0 30px;
+			font-size: 0.8rem;
+		}
+	}
+
+	.menu {
+		display: flex;
+		margin-bottom: 30px;
+
+		.box {
+			width: 25%;
+			height: 20vw;
+		}
+
+		.career {
+			background-color: rgb(212, 212, 57);
+		}
+
+		.post {
+			background-color: rgb(150, 200, 150);
+		}
+
+		.commentPost {
+			background-color: rgb(200, 150, 150);
+		}
+
+		.gallery {
+			background-color: rgb(255, 255, 182);
+		}
+	}
+
+	.contents {
+		padding: 0 40px;
+	}
+}
