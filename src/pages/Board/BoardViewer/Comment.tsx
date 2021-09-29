@@ -14,7 +14,6 @@ const Comment = (props: any) => {
 						<textarea
 							className="commentInput"
 							placeholder="댓글을 입력해주세요"
-							maxLength="250"
 							onChange={(event: any) => props.setTextContent(event.target.value)}
 							name="content"
 						/>
