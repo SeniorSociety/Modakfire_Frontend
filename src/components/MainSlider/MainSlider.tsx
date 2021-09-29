@@ -12,6 +12,7 @@ function MainSlider() {
 		autoplay: true,
 		autoplaySpeed: 5000,
 		pauseOnHover: true,
+		arrows: false,
 	};
 
 	const numbers: number[] = [1, 2, 3, 4, 5];
