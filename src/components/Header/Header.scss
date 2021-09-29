@@ -5,37 +5,56 @@
 	flex-direction: $flex-direction;
 }
 
-@mixin wh($width, $height) {
-	width: $width;
-	height: $height;
-}
-
 .headerContainer {
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
 		'Open Sans', 'Helvetica Neue', sans-serif;
-
 	@include flex(row, space-around, center);
-	background-color: lightgrey;
+	background-color: white;
 	font-size: 20px;
-
-	.logo,
-	.signIn,
-	.logIn {
+	display: flex;
+	justify-content: space-between;
+	.logo {
 		height: 60px;
 		@include flex(row);
-		border-radius: 15px;
-		background-color: rgb(255, 230, 0);
-		margin: 7px;
-		font-weight: 900;
+		.mainLogo {
+			width: 200%;
+			height: 100%;
+			object-fit: cover;
+			transform: scale(0.7);
+		}
 	}
-
-	.logo {
-		flex: 2;
-	}
-	.signIn {
-		flex: 1;
-	}
-	.logIn {
-		flex: 1;
+	.rightContainer {
+		@include flex(row);
+		.signIn,
+		.logIn {
+			margin: 7px;
+			font-weight: 900;
+			.namecard {
+				background: url('https://api.iconify.design/ant-design/idcard-outlined.svg') no-repeat
+					center center / contain;
+				width: 40px;
+				height: 60px;
+			}
+			.profile {
+				background: url('https://api.iconify.design/gg/profile.svg') no-repeat center center /
+					contain;
+				width: 40px;
+				height: 32px;
+			}
+			.login {
+				background: url('https://api.iconify.design/ri/login-box-line.svg') no-repeat center center /
+					contain;
+				width: 40px;
+				height: 32px;
+				margin-right: 5px;
+			}
+			.logout {
+				background: url('https://api.iconify.design/ri/logout-box-r-line.svg') no-repeat center
+					center / contain;
+				width: 40px;
+				height: 32px;
+				margin-right: 5px;
+			}
+		}
 	}
 }
