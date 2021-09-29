@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
 import Post from './BoardViewer/Post';
 import Comment from './BoardViewer/Comment';
+import PrevNextBtn from './BoardViewer/PrevNextBtn';
+import GoToBoard from './BoardViewer/GoToBoard';
 import axios from 'axios';
 import { API } from '../../config';
 import '@toast-ui/editor/dist/toastui-editor-viewer.css';
 import './Board.scss';
 
 function BoardViewer(props: any) {
+	const { id, view_id }: any = useParams();
+
+	const history = useHistory();
+
 	interface PostInfo {
 		title: string;
 		content: string;
@@ -52,20 +59,24 @@ function BoardViewer(props: any) {
 		user_id: 0,
 	});
 
+	const [pageRange, setPageRange] = useState(1);
+
+	const [currentPage, setCurrentPage] = useState<number>(1);
+
 	const submitComment = (e: any) => {
 		if (textContent) {
 			axios({
 				method: 'post',
-				url: `${API.BOARD}/1/${props.match.params.view_id}/comments`,
+				url: `${API.BOARD}/${id}/${view_id}/comments`,
 				data: { content: textContent },
 				headers: {
 					Authorization:
 						'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.Te32okoTxCk31WOFbT-LiVhTMcu_5IRPsEum3y930OQ',
 				},
 			})
-				.then(response => {
+				.then(res => {
 					axios
-						.get(`${API.BOARD}/1/${props.match.params.view_id}/comments?page=2`)
+						.get(`${API.BOARD}/${id}/${view_id}/comments?page=${pageRange}`)
 						.then(res => {
 							setCommentContent(res.data.MESSAGE);
 						})
@@ -79,9 +90,28 @@ function BoardViewer(props: any) {
 		}
 	};
 
+	const goToBoard = () => {
+		history.push(`/galleries/${id}`);
+	};
+
 	useEffect(() => {
 		axios
-			.get(`${API.BOARD}/1/${props.match.params.view_id}/comments?page=2`)
+			.get(`${API.BOARD}/${id}/${view_id}`)
+			.then(res => {
+				setPostContent(res.data.MESSAGE);
+				setPageRange(Math.ceil(res.data.MESSAGE.comment_count / 10) * 1);
+				setCurrentPage(res.data.MESSAGE.id);
+				console.log(res.data);
+			})
+			.then(res => {})
+			.catch(error => {
+				console.log(error);
+			});
+	}, []);
+
+	useEffect(() => {
+		axios
+			.get(`${API.BOARD}/${id}/${view_id}/comments?page=${pageRange}`)
 			.then(res => {
 				setCommentContent(res.data.MESSAGE);
 				console.log(res.data);
@@ -89,28 +119,19 @@ function BoardViewer(props: any) {
 			.catch(error => {
 				console.log(error);
 			});
-	}, []);
-
-	useEffect(() => {
-		axios
-			.get(`${API.BOARD}/1/${props.match.params.view_id}`)
-			.then(res => {
-				setPostContent(res.data.MESSAGE);
-				console.log(res.data);
-			})
-			.catch(error => {
-				console.log(error);
-			});
-	}, []);
+	}, [pageRange]);
 
 	return (
 		<>
 			<Post postContent={postContent} setPostContent={setPostContent} />
+			<PrevNextBtn postContent={postContent} currentPage={currentPage} />
 			<Comment
 				textContent={textContent}
 				setTextContent={setTextContent}
 				submitComment={submitComment}
 				commentContent={commentContent}
+				pageRange={pageRange}
+				goToBoard={goToBoard}
 			/>
 		</>
 	);

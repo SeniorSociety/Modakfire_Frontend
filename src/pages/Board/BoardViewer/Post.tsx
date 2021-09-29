@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 function Post(props: any) {
 	return (
@@ -11,7 +12,9 @@ function Post(props: any) {
 				<p>[{props.postContent.created_at}]</p>
 			</div>
 			<div className="moveContainerContent">
-				<div>{props.postContent.content}</div>
+				<div>
+					<ReactMarkdown>{props.postContent.content}</ReactMarkdown>
+				</div>
 			</div>
 		</div>
 	);

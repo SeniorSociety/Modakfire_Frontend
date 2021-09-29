@@ -42,7 +42,6 @@
 	margin: 10px auto;
 	width: 90%;
 	padding: 10px 0;
-	// color: #666666;
 }
 
 .moveContainerTitle {
@@ -106,6 +105,7 @@
 		color: white;
 		font-size: 14px;
 		border-radius: 3px;
+		cursor: pointer;
 	}
 }
 
@@ -164,4 +164,19 @@
 	p {
 		font-weight: 600;
 	}
+}
+
+//PrevNextBtn
+.moveContainerPreNext {
+	@extend .moveContainer;
+	border: 2px solid #d0d0d0;
+	border-radius: 3px;
+}
+
+.moveContainerPrevNextBtn {
+	padding: 5px 20px;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 25px;
+	cursor: pointer;
 }

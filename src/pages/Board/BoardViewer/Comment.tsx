@@ -1,4 +1,7 @@
 import React from 'react';
+import Pagenation from './Pagenation';
+import GoToBoard from './GoToBoard';
+
 import '@toast-ui/editor/dist/toastui-editor-viewer.css';
 
 const Comment = (props: any) => {
@@ -14,7 +17,7 @@ const Comment = (props: any) => {
 						<textarea
 							className="commentInput"
 							placeholder="댓글을 입력해주세요"
-							maxLength="250"
+							maxLength={250}
 							onChange={(event: any) => props.setTextContent(event.target.value)}
 							name="content"
 						/>
@@ -39,9 +42,8 @@ const Comment = (props: any) => {
 						</>
 					) : null}
 				</div>
-				<button className="submitButton" style={{ width: '100%', backgroundColor: '#A9AAAC' }}>
-					게시판으로 돌아가기
-				</button>
+				<Pagenation pageRange={props.pageRange} />
+				<GoToBoard goToBoard={props.goToBoard} />
 			</div>
 		</>
 	);
