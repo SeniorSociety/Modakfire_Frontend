@@ -34,11 +34,8 @@ const NameCard = () => {
 			})
 			.then(res => {
 				setData(res.data.MESSAGE);
-				// console.log('111', res);
 			})
-			.catch(error => {
-				// console.log(error);
-			});
+			.catch(error => console.log(error));
 	}, []);
 
 	function handleuploadData(e: any): void {
@@ -73,13 +70,11 @@ const NameCard = () => {
 		alert('명함제작이 완료되었습니다');
 	}
 
-	// console.log(userImage);
 	return (
 		<div>
 			<Card
 				edit={edit}
 				data={data}
-				userImage={userImage}
 				setUserImage={setUserImage}
 				setUserName={setUserName}
 				setUserSlogan={setUserSlogan}
