@@ -5,9 +5,10 @@ function PrevNextBtn(props: any) {
 	const { id }: any = useParams();
 
 	return (
-		<div className="moveContainerPreNext">
+		<div className="moveContainerPrevNext">
 			{!props.postContent.first && (
 				<div
+					style={{ paddingBottom: '10px' }}
 					className="moveContainerPrevNextBtn"
 					onClick={() => {
 						window.location.replace(`/board-viewer/${id}/${props.currentPage - 1}`);

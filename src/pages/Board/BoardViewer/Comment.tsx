@@ -1,5 +1,5 @@
 import React from 'react';
-import Pagenation from './Pagenation';
+import Pagination from './Pagination';
 import GoToBoard from './GoToBoard';
 
 import '@toast-ui/editor/dist/toastui-editor-viewer.css';
@@ -42,7 +42,13 @@ const Comment = (props: any) => {
 						</>
 					) : null}
 				</div>
-				<Pagenation pageRange={props.pageRange} />
+				<Pagination
+					pageNum={props.pageNum}
+					setPageNum={props.setPageNum}
+					pageRange={props.pageRange}
+					commentContent={props.commentContent}
+					setCommentContent={props.setCommentContent}
+				/>
 				<GoToBoard goToBoard={props.goToBoard} />
 			</div>
 		</>

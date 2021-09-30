@@ -1,5 +1,5 @@
 // const BASE_URL = 'internal-RealALB-2052302361.ap-northeast-2.elb.amazonaws.com';
-const BASE_URL = 'http://10.58.3.229:8000';
+const BASE_URL = 'http://10.58.6.244:8000';
 
 export const API = {
 	SERVER: `${BASE_URL}`,

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import Post from './BoardViewer/Post';
-import Comment from './BoardViewer/Comment';
+import AdViewer from './BoardViewer/AdViewer';
 import PrevNextBtn from './BoardViewer/PrevNextBtn';
-import GoToBoard from './BoardViewer/GoToBoard';
+import Comment from './BoardViewer/Comment';
 import axios from 'axios';
 import { API } from '../../config';
 import '@toast-ui/editor/dist/toastui-editor-viewer.css';
@@ -59,6 +59,8 @@ function BoardViewer(props: any) {
 		user_id: 0,
 	});
 
+	const [pageNum, setPageNum] = useState(1);
+
 	const [pageRange, setPageRange] = useState(1);
 
 	const [currentPage, setCurrentPage] = useState<number>(1);
@@ -76,9 +78,11 @@ function BoardViewer(props: any) {
 			})
 				.then(res => {
 					axios
-						.get(`${API.BOARD}/${id}/${view_id}/comments?page=${pageRange}`)
+						.get(`${API.BOARD}/${id}/${view_id}/comments?page=${pageNum}`)
 						.then(res => {
 							setCommentContent(res.data.MESSAGE);
+							setPageNum(res.data.PAGE_RANGE);
+							setPageRange(res.data.PAGE_RANGE);
 						})
 						.catch(error => {
 							console.log(error);
@@ -99,7 +103,7 @@ function BoardViewer(props: any) {
 			.get(`${API.BOARD}/${id}/${view_id}`)
 			.then(res => {
 				setPostContent(res.data.MESSAGE);
-				setPageRange(Math.ceil(res.data.MESSAGE.comment_count / 10) * 1);
+				setPageNum(Math.ceil(res.data.MESSAGE.comment_count / 10) * 1);
 				setCurrentPage(res.data.MESSAGE.id);
 				console.log(res.data);
 			})
@@ -111,26 +115,31 @@ function BoardViewer(props: any) {
 
 	useEffect(() => {
 		axios
-			.get(`${API.BOARD}/${id}/${view_id}/comments?page=${pageRange}`)
+			.get(`${API.BOARD}/${id}/${view_id}/comments?page=${pageNum}`)
 			.then(res => {
 				setCommentContent(res.data.MESSAGE);
+				setPageRange(res.data.PAGE_RANGE);
 				console.log(res.data);
 			})
 			.catch(error => {
 				console.log(error);
 			});
-	}, [pageRange]);
+	}, [pageNum]);
 
 	return (
 		<>
 			<Post postContent={postContent} setPostContent={setPostContent} />
+			<AdViewer />
 			<PrevNextBtn postContent={postContent} currentPage={currentPage} />
 			<Comment
 				textContent={textContent}
 				setTextContent={setTextContent}
 				submitComment={submitComment}
 				commentContent={commentContent}
+				setCommentContent={setCommentContent}
 				pageRange={pageRange}
+				pageNum={pageNum}
+				setPageNum={setPageNum}
 				goToBoard={goToBoard}
 			/>
 		</>
