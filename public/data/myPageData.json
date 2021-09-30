@@ -1,0 +1,160 @@
+{
+	"MESSAGE": {
+		"namecard": {
+			"image": "/images/github.png",
+			"name": "깃허브",
+			"slogan": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+			"introduce": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+			"email": "1234@naver.com",
+			"location": "인천",
+			"works": []
+		},
+
+		"bookmarks": [
+			{
+				"gallery_name": "Gallery1",
+				"gallery_image": "/images/test6.jpg"
+			},
+			{
+				"gallery_name": "Gallery2",
+				"gallery_image": "/images/test3.jpg"
+			},
+			{
+				"gallery_name": "Gallery3",
+				"gallery_image": "/images/test4.jpg"
+			},
+			{
+				"gallery_name": "Gallery4",
+				"gallery_image": "/images/test5.jpg"
+			}
+		],
+
+		"postings": [
+			{
+				"gallery_id": 1,
+				"id": 1,
+				"title": "posting1posting1posting1posting1posting1posting1posting1posting1posting1",
+				"content": "안녕하세요1",
+				"created_at": "2021-09-15T08:58:06.926"
+			},
+			{
+				"gallery_id": 1,
+				"id": 82,
+				"title": "eqwqwe2222",
+				"content": "test1111eeee",
+				"created_at": "2021-09-15T09:00:50.858"
+			},
+			{
+				"gallery_id": 1,
+				"id": 83,
+				"title": "eqwqwe2222",
+				"content": "test1111eeee",
+				"created_at": "2021-09-15T09:02:10.882"
+			},
+			{
+				"gallery_id": 1,
+				"id": 84,
+				"title": "eqwqwe22221",
+				"content": "test1111eeee776",
+				"created_at": "2021-09-17T07:41:48.885"
+			},
+			{
+				"gallery_id": 1,
+				"id": 85,
+				"title": "eqwqwe22221e",
+				"content": "test1111eeee776",
+				"created_at": "2021-09-17T07:41:54.714"
+			},
+			{
+				"gallery_id": 1,
+				"id": 86,
+				"title": "eqwqwe22221e",
+				"content": "test1111eeee776",
+				"created_at": "2021-09-17T07:42:27.335"
+			},
+			{
+				"gallery_id": 1,
+				"id": 87,
+				"title": "eqwqwe22221e",
+				"content": "test1111eeee776",
+				"created_at": "2021-09-17T07:42:27.335"
+			},
+			{
+				"gallery_id": 1,
+				"id": 88,
+				"title": "eqwqwe22221e",
+				"content": "test1111eeee776",
+				"created_at": "2021-09-17T07:42:27.335"
+			}
+		],
+
+		"likes": [
+			{
+				"gallery_id": 1,
+				"id": 98,
+				"title": "asdf",
+				"content": "sadfasdfsdf",
+				"created_at": "2021-09-28T09:39:13.166"
+			},
+			{
+				"gallery_id": 1,
+				"id": 95,
+				"title": "adsfasdf",
+				"content": "## **adsfasdf**",
+				"created_at": "2021-09-28T07:44:18.957"
+			}
+		],
+
+		"commented_postings": [
+			{
+				"gallery_id": 1,
+				"id": 1,
+				"title": "posting1",
+				"content": "안녕하세요1",
+				"created_at": "2021-09-15T08:58:06.926"
+			},
+			{
+				"gallery_id": 1,
+				"id": 2,
+				"title": "posting2",
+				"content": "안녕하세요2",
+				"created_at": "2021-09-15T08:58:06.945"
+			},
+			{
+				"gallery_id": 1,
+				"id": 3,
+				"title": "posting3",
+				"content": "안녕하세요3",
+				"created_at": "2021-09-15T08:58:06.953"
+			},
+			{
+				"gallery_id": 1,
+				"id": 4,
+				"title": "posting4",
+				"content": "안녕하세요4",
+				"created_at": "2021-09-15T08:58:06.959"
+			},
+			{
+				"gallery_id": 1,
+				"id": 5,
+				"title": "posting4",
+				"content": "안녕하세요4",
+				"created_at": "2021-09-15T08:58:06.959"
+			},
+			{
+				"gallery_id": 1,
+				"id": 6,
+				"title": "posting4",
+				"content": "안녕하세요4",
+				"created_at": "2021-09-15T08:58:06.959"
+			},
+			{
+				"gallery_id": 1,
+				"id": 7,
+				"title": "posting4",
+				"content": "안녕하세요4",
+				"created_at": "2021-09-15T08:58:06.959"
+			}
+		]
+	}
+}

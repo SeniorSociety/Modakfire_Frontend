@@ -1,0 +1,19 @@
+.compWrap {
+	min-width: 200px;
+	width: 100%;
+	min-height: 55px;
+
+	.postTitle {
+		min-width: 200px;
+		min-height: 66%;
+		padding-bottom: 10px;
+		line-height: 21px;
+		overflow: hidden;
+	}
+
+	.postContent {
+		color: #aaa;
+		font-size: 0.8rem;
+		overflow: hidden;
+	}
+}

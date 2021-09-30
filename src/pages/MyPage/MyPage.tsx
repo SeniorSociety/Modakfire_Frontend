@@ -1,25 +1,60 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router';
 import axios from 'axios';
-import Card from '../../components/Card/Card';
-import History from '../../components/History/History';
-import CommentPost from '../../components/MyPageContents/CommentPost';
-import Gallery from '../../components/MyPageContents/Gallery';
-import Post from '../../components/MyPageContents/Post';
+import PostLayout from '../../components/MyPageContentLayout/PostLayout';
 import './MyPage.scss';
 import { API } from '../../config';
 
 function MyPage() {
-	// const [data, setData] = useState();
-	const [contentMode, setContentMode] = useState();
+	const [contentMode, setContentMode] = useState<string>('gallery');
+	const [data, setData] = useState({
+		namecard: {
+			image: '',
+			name: '',
+			slogan: '',
+			introduce: '',
+			email: '',
+			location: '',
+		},
+		bookmarks: [
+			{
+				gallery_name: '',
+				gallery_image: '',
+			},
+		],
+		postings: [
+			{
+				gallery_id: 0,
+				id: 0,
+				title: '',
+				content: '',
+				created_at: '',
+			},
+		],
+		likes: [
+			{
+				gallery_id: 0,
+				id: 0,
+				title: '',
+				content: '',
+				created_at: '',
+			},
+		],
+		commented_postings: [
+			{
+				gallery_id: 0,
+				id: 0,
+				title: '',
+				content: '',
+				created_at: '',
+			},
+		],
+		is_editable: false,
+	});
 
-	// useEffect(() => {
-	// 	axios
-	// 		.get(API.NAMECARD)
-	// 		.then(res => {
-	// 			setData(res.data.MESSAGE);
-	// 		})
-	// 		.catch(error => console.log(error));
-	// }, []);
+	const { bookmarks, postings, likes, commented_postings, is_editable } = data;
+	const { image, name, slogan, introduce, email, location } = data.namecard;
+	const history = useHistory();
 
 	const handleContentMode = e => {
 		const { className } = e.target;
@@ -29,54 +64,64 @@ function MyPage() {
 
 	const showContentMode = () => {
 		switch (contentMode) {
-			case 'post':
-				return `post`;
-			// return <Post />;
+			case 'myPosts':
+				return <PostLayout data={postings} />;
+			case 'likePosts':
+				return <PostLayout data={likes} />;
 			case 'commentPost':
-				return `commentPost`;
-			// return <CommentPost />;
-			case 'gallery':
-				return `gallery`;
-			// return <Gallery />;
-			default:
-				return `career`;
-			// return <History />;
+				return <PostLayout data={commented_postings} />;
 		}
 	};
+
+	useEffect(() => {
+		axios.get(`./data/myPageData.json`).then(res => {
+			setData(res.data.MESSAGE);
+		});
+	}, []);
 
 	return (
 		<div className="myPageBody">
 			<section className="bio container">
-				<div className="rowFlex">
-					<img src="./images/test2.jpg" />
+				<article className="rowFlex">
+					<img src={image} />
 					<div className="contacts">
-						<div className="phone">010-0000-0000</div>
-						<div className="email">toannd.figmateam@gmail.com</div>
-						<div className="blog">blgo.com</div>
+						<div className="name">{name}</div>
+						<div className="email">{email}</div>
+						<div className="slogan">{slogan}</div>
 					</div>
-				</div>
-				<div className="bioInfo">
-					<div className="name">심택준</div>
-					<div className="age">33</div>
-				</div>
-				<div className="motto">안녕하세요</div>
+				</article>
+				<div className="intro">{introduce}</div>
 			</section>
 			<section className="menu container">
-				{/* 클릭을 했을 때 조건 상태값을 변경 */}
-				<div className="career box" onClick={handleContentMode}>
-					{/* <img src="./images/test3.jpg" /> */}
-				</div>
-				<div className="post box" onClick={handleContentMode}>
-					{/* <img src="./images/test4.jpg" /> */}
-				</div>
-				<div className="commentPost box" onClick={handleContentMode}>
-					{/* <img src="./images/test5.jpg" /> */}
-				</div>
-				<div className="gallery box" onClick={handleContentMode}>
-					{/* <img src="./images/test6.jpg" /> */}
-				</div>
+				<div className="gallery box" onClick={handleContentMode} />
+				<div className="myPosts box" onClick={handleContentMode} />
+				<div className="likePosts box" onClick={handleContentMode} />
+				<div className="commentPost box" onClick={handleContentMode} />
 			</section>
-			<section className="contents container">{showContentMode()}</section>
+			<section className="contents container">
+				{contentMode !== 'gallery' ? (
+					showContentMode()
+				) : (
+					<div className="galleryBody">
+						<section className="galleryContainer">
+							{bookmarks.map((el, id) => {
+								return (
+									<div
+										key={id}
+										className="galleryBox"
+										onClick={() => {
+											history.push(`/board-list/${id}`);
+										}}
+									>
+										<img src={el.gallery_image} />
+										<p>{el.gallery_name}</p>
+									</div>
+								);
+							})}
+						</section>
+					</div>
+				)}
+			</section>
 		</div>
 	);
 }

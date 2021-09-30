@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { API } from '../../config';
 import axios from 'axios';
+import { API } from '../../config';
 import './InfiniteScroll.scss';
 
 interface PostData {
@@ -43,8 +43,11 @@ function InfiniteScroll() {
 		if (!pageIndex) return;
 
 		try {
-			const res = await axios.get(`${API.GALLERIES}/${id}?page=${pageIndex}`);
+			// const res = await axios.get(`${API.GALLERIES}/${id}?page=${pageIndex}`);
+			const res = await axios.get(`./data/mock1.json`);
 			const result = res.data.MESSAGE;
+
+			console.log('item');
 
 			setDataList(prevState => {
 				return [...result, ...prevState];
@@ -61,6 +64,8 @@ function InfiniteScroll() {
 			console.log(error);
 		}
 	};
+
+	// console.log(dataList);
 
 	useEffect(() => {
 		const handleIntersection = (entires: any) => {
@@ -111,7 +116,7 @@ function InfiniteScroll() {
 						>
 							<img alt="thumbnail" src={post.thumbnail} />
 							<article className="postWrap">
-								<h2 className="postTitle">{post.title}</h2>
+								<h2>{post.title}</h2>
 								<div className="idTimeCount">
 									<p className="user_nickname forCss">{post.user_nickname}</p>
 									<p className="created_at forCss">{handleDate()}</p>

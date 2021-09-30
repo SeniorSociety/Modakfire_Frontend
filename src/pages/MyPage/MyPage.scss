@@ -1,8 +1,10 @@
 .myPageBody {
-	margin: 70px 0 20px;
+	margin: 30px 0 20px;
 	letter-spacing: 1.5px;
 
 	.bio {
+		max-width: 600px;
+		margin: 0 auto;
 		padding: 0 40px;
 
 		.rowFlex {
@@ -10,70 +12,101 @@
 			align-items: center;
 
 			img {
-				width: 18vw;
+				width: 22vw;
 				height: 20vw;
+				margin-right: 2vw;
 				border-radius: 100%;
 			}
 
 			.contacts {
 				margin-left: 20px;
 				font-size: 0.6rem;
+
+				.name {
+					font-size: 6vw;
+					font-weight: bold;
+					letter-spacing: 2px;
+					opacity: 0.7;
+				}
+
+				.slogan {
+					font-size: 2vw;
+				}
+
+				.email {
+					font-size: 2vw;
+				}
+
+				.name,
+				.email,
+				.slogan {
+					max-width: 70vw;
+					padding-bottom: 1.5vw;
+				}
 			}
 		}
 
-		.bioInfo {
-			display: flex;
-			align-items: center;
-			margin-top: 20px;
-
-			.name {
-				font-size: 1.5rem;
-				font-weight: bold;
-				letter-spacing: 2px;
-				opacity: 0.7;
-			}
-
-			.age {
-				margin-left: 10px;
-				color: #aaa;
-				font-size: 1.2rem;
-				font-weight: 300;
-			}
-		}
-
-		.motto {
-			margin: 50px 0 30px;
-			font-size: 0.8rem;
+		.intro {
+			margin: 5vw 8vw;
+			font-size: 3vw;
 		}
 	}
 
 	.menu {
 		display: flex;
-		margin-bottom: 30px;
+		margin-bottom: 15px;
 
 		.box {
 			width: 25%;
 			height: 20vw;
 		}
 
-		.career {
-			background-color: rgb(212, 212, 57);
+		.gallery {
+			background-color: rgb(255, 255, 182);
 		}
 
-		.post {
+		.myPosts {
 			background-color: rgb(150, 200, 150);
+		}
+
+		.likePosts {
+			background-color: rgb(212, 212, 57);
 		}
 
 		.commentPost {
 			background-color: rgb(200, 150, 150);
 		}
-
-		.gallery {
-			background-color: rgb(255, 255, 182);
-		}
 	}
 
 	.contents {
+		max-width: 600px;
+		margin: 0 auto;
 		padding: 0 40px;
+
+		.galleryBody {
+			text-align: center;
+
+			.menuTitle {
+				margin-bottom: 15px;
+			}
+
+			.galleryContainer {
+				display: flex;
+				justify-content: center;
+				flex-wrap: wrap;
+				padding-top: 3px;
+
+				.galleryBox {
+					margin: 10px;
+					&:hover {
+						cursor: pointer;
+					}
+
+					img {
+						width: 33vw;
+					}
+				}
+			}
+		}
 	}
 }

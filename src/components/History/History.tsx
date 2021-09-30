@@ -10,11 +10,11 @@ interface Inputs {
 }
 
 interface editProps {
-	edit: boolean;
-	data: any;
-	setHistoryYear: () => string;
-	setHistoryTitle: () => string;
-	setHistorySubTitle: () => string;
+	edit?: boolean;
+	data?: any;
+	setHistoryYear?: () => string;
+	setHistoryTitle?: () => string;
+	setHistorySubTitle?: () => string;
 }
 
 function History({ edit, data, setHistoryYear, setHistoryTitle, setHistorySubTitle }) {
