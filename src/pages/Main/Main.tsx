@@ -35,7 +35,7 @@ function Main() {
 		getItems();
 	}, []);
 
-	console.log(galleryInfo);
+	// console.log(galleryInfo);
 	return (
 		<>
 			<MainSlider props={galleryInfo} />
