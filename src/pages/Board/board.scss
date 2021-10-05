@@ -185,22 +185,33 @@
 	border-radius: 3px;
 }
 
+.prevNextBtnImg {
+	width: 13px;
+}
+
 .moveContainerPrevNextBtn {
-	padding: 5px 15px;
-	font-size: 18px;
+	padding: 3px 15px;
+	font-size: 17px;
 	font-weight: 700;
-	line-height: 20px;
+	line-height: 15px;
 	cursor: pointer;
 }
 
 //Pagination
 .moveContainerPagination {
-	margin: 10px auto;
+	margin-top: 10px;
 	width: 100%;
-	padding: 10px 0;
 }
 
 .PaginationBtn {
 	display: flex;
 	justify-content: space-between;
+	font-size: 15px;
+
+	li {
+		padding: 0 10px;
+		border-radius: 3px;
+		border: 2px solid #f5df4d;
+		background-color: #fdf099;
+	}
 }

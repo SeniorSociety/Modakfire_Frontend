@@ -14,7 +14,8 @@ function PrevNextBtn(props: any) {
 						window.location.replace(`/board-viewer/${id}/${props.currentPage - 1}`);
 					}}
 				>
-					🔼 &nbsp;이전 글
+					<img className="prevNextBtnImg" src="/images/navigate-up-arrow.png" alt="b" />
+					&nbsp;&nbsp;이전 글
 				</div>
 			)}
 			{!props.postContent.last && (
@@ -24,7 +25,8 @@ function PrevNextBtn(props: any) {
 						window.location.replace(`/board-viewer/${id}/${props.currentPage + 1}`);
 					}}
 				>
-					🔽 &nbsp;다음 글
+					<img className="prevNextBtnImg" src="/images/navigate-down-arrow.png" alt="b" />
+					&nbsp;&nbsp;다음 글
 				</div>
 			)}
 		</div>

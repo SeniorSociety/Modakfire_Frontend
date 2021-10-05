@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import axios from 'axios';
 import { API } from '../../../config';
 import { useParams } from 'react-router-dom';
@@ -7,7 +7,7 @@ function Pagination(props: any): JSX.Element {
 	const { id, view_id }: any = useParams();
 
 	const pageArray = [];
-	for (let i = 1; i <= props.pageNum; i++) {
+	for (let i = 1; i <= props.pageRange; i++) {
 		pageArray.unshift(i);
 	}
 
@@ -40,7 +40,7 @@ function Pagination(props: any): JSX.Element {
 			<div className="moveContainerPagination">
 				<ul className="PaginationBtn">
 					<li onClick={minusPage}>이전 댓글</li>
-					{/* {pageArray.map((e: any, i: number) => {
+					{/* {pageArray.reverse().map((e: any, i: number) => {
 						return (
 							<li onClick={() => getComment(i)} key={i}>
 								{pageArray[i]}

@@ -41,15 +41,15 @@ const Comment = (props: any) => {
 							})}
 						</>
 					) : null}
+					<Pagination
+						pageNum={props.pageNum}
+						setPageNum={props.setPageNum}
+						pageRange={props.pageRange}
+						commentContent={props.commentContent}
+						setCommentContent={props.setCommentContent}
+					/>
+					{/* <GoToBoard goToBoard={props.goToBoard} /> */}
 				</div>
-				<Pagination
-					pageNum={props.pageNum}
-					setPageNum={props.setPageNum}
-					pageRange={props.pageRange}
-					commentContent={props.commentContent}
-					setCommentContent={props.setCommentContent}
-				/>
-				<GoToBoard goToBoard={props.goToBoard} />
 			</div>
 		</>
 	);
