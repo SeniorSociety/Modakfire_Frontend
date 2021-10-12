@@ -6,8 +6,14 @@ import axios from 'axios';
 import './Main.scss';
 
 function Main() {
+	interface userProps {
+		gallery_id: number;
+		gallery_name: string;
+		gallery_image: string;
+	}
+
 	const history = useHistory();
-	const [galleryInfo, setGalleryInfo] = useState([
+	const [galleryInfo, setGalleryInfo] = useState<userProps[]>([
 		{
 			gallery_id: 0,
 			gallery_name: '',
@@ -18,7 +24,8 @@ function Main() {
 	useEffect(() => {
 		const getItems = async (): Promise<void> => {
 			try {
-				const res = await axios.get(API.GALLERIES);
+				// const res = await axios.get(API.GALLERIES);
+				const res = await axios.get('./data/cssData.json');
 				const result = res.data.MESSAGE;
 				setGalleryInfo(result);
 			} catch (error) {
@@ -28,9 +35,10 @@ function Main() {
 		getItems();
 	}, []);
 
+	console.log(galleryInfo);
 	return (
 		<>
-			<MainSlider />
+			<MainSlider props={galleryInfo} />
 			<div className="bodyContainer">
 				<ul className="menuContainer">
 					{galleryInfo.map(info => (

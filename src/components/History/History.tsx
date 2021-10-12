@@ -26,9 +26,6 @@ function History({ edit, data, setHistoryYear, setHistoryTitle, setHistorySubTit
 	const historySubTitle = useRef<HTMLInputElement>();
 
 	function createHistory(e: any): void {
-		// console.log('year', historyYear.current.value);
-		// console.log('title', historyTitle.current.value);
-		// console.log('subtitle', historySubTitle.current.value);
 		const { value } = e.target;
 		setHistoryYear(prev => prev.concat(historyYear.current.value));
 		setHistoryTitle(prev => prev.concat(historyTitle.current.value));
@@ -41,8 +38,7 @@ function History({ edit, data, setHistoryYear, setHistoryTitle, setHistorySubTit
 			<div className="historyContainer">
 				<div className="line"></div>
 				<header className="workTitle">
-					이력
-					<div className="square"></div>
+					<div className="square"></div>이력
 				</header>
 				{edit ? (
 					<>
@@ -80,7 +76,7 @@ function History({ edit, data, setHistoryYear, setHistoryTitle, setHistorySubTit
 								</section>
 							);
 						})}
-						<input type="button" className="add" value="추 가 하 기" onClick={createHistory} />
+						<input type="button" className="add" value="+" onClick={createHistory} />
 					</>
 				) : (
 					<>
@@ -100,7 +96,6 @@ function History({ edit, data, setHistoryYear, setHistoryTitle, setHistorySubTit
 								</section>
 							);
 						})}
-						<input type="button" className="add" value="추 가 하 기" />
 					</>
 				)}
 			</div>
