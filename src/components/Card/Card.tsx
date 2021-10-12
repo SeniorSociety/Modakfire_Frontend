@@ -73,13 +73,20 @@ function Card({
 				<div className="cardContainer">
 					<div className="leftContainer">
 						<input type="File" className="uploadInput" onChange={imagePreview} />
-						<img src={mainPic} alt="laughinman" style={{ opacity: mainPic.length === 0 ? 0 : 1 }} />
+						<img
+							src={mainPic}
+							alt="laughinman"
+							style={{ opacity: mainPic.length === 0 ? 0 : 1 }}
+							className="mainPic"
+						/>
 						<img
 							src={
-								'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa0qEV_mEF19gs68CDaSmZ4e0kssbxyOAMbw&usqp=CAU'
+								'https://media.istockphoto.com/vectors/young-man-using-smartphone-to-communicate-happy-teen-boy-taking-with-vector-id1224464061?b=1&k=20&m=1224464061&s=612x612&w=0&h=evdOYG-pTLeq6I3P1LzxY9Ptl7_COge6aeHxRP0Q3jM='
 							}
 							alt="laughinman"
-							style={{ display: mainPic.length === 0 ? 'block' : 'none' }}
+							style={{
+								display: mainPic.length === 0 ? 'block' : 'none',
+							}}
 						/>
 					</div>
 					<div className="rightContainer">

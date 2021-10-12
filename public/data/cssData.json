@@ -1,0 +1,24 @@
+{
+	"MESSAGE": [
+		{
+			"gallery_id": 1,
+			"gallery_image": "https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg",
+			"gallery_name": "Dwen is Soldier"
+		},
+		{
+			"gallery_id": 2,
+			"gallery_image": "https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg",
+			"gallery_name": "Hojun is Jenkins"
+		},
+		{
+			"gallery_id": 3,
+			"gallery_image": "https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg",
+			"gallery_name": "Min is Robot"
+		},
+		{
+			"gallery_id": 4,
+			"gallery_image": "https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg",
+			"gallery_name": "Modak is Fire"
+		}
+	]
+}

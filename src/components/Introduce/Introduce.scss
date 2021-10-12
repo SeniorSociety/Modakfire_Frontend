@@ -1,18 +1,46 @@
 .introduceContainer {
+	position: relative;
 	overflow-x: hidden;
 	display: flex;
 	height: 100%;
+	max-width: 600px;
+	margin: 0 auto;
+	margin-top: 10px;
+	background-color: #fffbf9;
+	// z-index: -1;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0), 0 5px 5px rgba(0, 0, 0, 0.15);
+
+	.square {
+		position: absolute;
+		left: 59px;
+		top: 32px;
+		width: 25px;
+		height: 25px;
+		background: orange;
+		border-radius: 50%;
+		box-shadow: inset -3px -3px 5px rgba(0, 0, 0, 0.2);
+		z-index: 1;
+	}
+	.line {
+		position: absolute;
+		left: 70px;
+		width: 4px;
+		height: 100%;
+		background: orange;
+	}
+
 	.leftContainer {
-		padding: 25px;
-		border-right: 3px solid steelblue;
+		padding: 35.3px;
+		// border-right: 3px solid steelblue;
 	}
 	.rightContainer {
 		padding: 15px;
+		width: 444px;
 		header {
-			margin: 20px 20px 20px 0;
+			margin: 20px 20px 20px 15px;
 			font-size: 20px;
 			font-weight: 700;
-			color: steelblue;
+			color: rgb(44, 44, 44);
 		}
 		article {
 			line-height: 23px;
@@ -21,17 +49,14 @@
 		}
 		textarea {
 			height: 350px;
-			width: 275px;
+			width: 100%;
 			padding: 10px;
-			border: none;
 			resize: none;
 			font-size: 15px;
 			line-height: 20px;
-			word-spacing: -5px;
+			border: 1px dashed black;
 		}
-		textarea:focus {
-			outline-color: steelblue;
-		}
+
 		.countWord {
 			position: relative;
 			left: 165px;

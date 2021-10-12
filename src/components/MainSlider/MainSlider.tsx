@@ -3,8 +3,9 @@ import Slider from 'react-slick';
 import './MainSlider.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { OmitProps } from 'antd/lib/transfer/ListBody';
 
-function MainSlider() {
+function MainSlider(props: any) {
 	const settings = {
 		infinite: true,
 		slidesToShow: 1,
@@ -15,19 +16,13 @@ function MainSlider() {
 		arrows: false,
 	};
 
-	const numbers: number[] = [1, 2, 3, 4, 5];
-
 	return (
 		<Slider {...settings}>
-			{numbers.map(props => (
-				<div className="mainSlider">
-					<img
-						src="https://images.unsplash.com/photo-1547822686-8ba163e1122a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1865&q=80"
-						alt="slide"
-						className="slideImage"
-					/>
+			{props.props.map(props => (
+				<div className="mainSlider" key={props.gallery_id}>
+					<img src={props.gallery_image} alt={props.gallery_id} className="slideImage" />
 					<div className="spanContainer">
-						<span className="phrase">나와 비슷한 친구를 만난다</span>
+						<span className="phrase">{props.gallery_name}</span>
 					</div>
 				</div>
 			))}
