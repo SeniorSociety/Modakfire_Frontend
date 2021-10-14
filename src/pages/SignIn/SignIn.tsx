@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router';
 import axios from 'axios';
 import KakaoLogin from 'react-kakao-login';
-import GoogleLogin from 'react-google-login';
+// import GoogleLogin from 'react-google-login';
 import NaverLogin from '@cereme/react-naver-login';
 import './SignIn.scss';
 
@@ -15,7 +15,7 @@ function SignIn() {
 
 		axios({
 			method: 'post',
-			url: 'http://172.30.1.18:8000/users/kakao',
+			url: 'http://172.30.1.28:8000/users/kakao',
 			headers: {
 				Authorization: accessToken,
 			},
@@ -24,7 +24,9 @@ function SignIn() {
 			if (res.data.NEEDNICKNAME) {
 				history.push('/signup', res.data.TOKEN);
 			} else if (res.data.NEEDNICKNAME && res.data.MESSAGE === 'SUCCESS') {
+				alert('환영합니다!');
 				localStorage.setItem('TOKEN', res.data.TOKEN);
+				history.push('/');
 			} else {
 				alert('오류가 발생 하였습니다.');
 			}
@@ -37,16 +39,18 @@ function SignIn() {
 		console.log('naver token', accessToken);
 		axios({
 			method: 'post',
-			url: 'http://172.30.1.18:8000/users/naver',
+			url: 'http://172.30.1.28:8000/users/naver',
 			headers: {
 				Authorization: data.accessToken.accessToken,
 			},
 		}).then(res => {
 			console.log(res.data);
-			if (res.data.NEEDNICKNAME === 'TRUE') {
+			if (res.data.NEEDNICKNAME) {
 				history.push('/signup', res.data.TOKEN);
-			} else if (res.data.NEEDNICKNAME && res.data.MESSAGE === 'SUCCESS') {
+			} else if (res.data.MESSAGE === 'SUCCESS') {
+				alert('환영합니다!');
 				localStorage.setItem('TOKEN', res.data.TOKEN);
+				history.push('/');
 			} else {
 				alert('오류가 발생 하였습니다.');
 			}

@@ -8,6 +8,7 @@ import NameCard from './pages/NameCard/NameCard';
 import Footer from './components/Footer/Footer';
 import SignIn from './pages/SignIn/SignIn';
 import MyPage from './pages/MyPage/MyPage';
+import SignUp from './pages/SignUp/SignUp';
 
 function Routes() {
 	return (
@@ -19,6 +20,7 @@ function Routes() {
 				<Route exact path="/board-post" component={BoardPost} />
 				<Route exact path="/board-viewer/:view_id" component={BoardViewer} />
 				<Route exact path="/signin" component={SignIn} />
+				<Route exact path="/signup" component={SignUp} />
 				<Route exact path="/profile" component={NameCard} />
 				<Route exact path="/mypage" component={MyPage} />
 				<Route path="*" component={Main} />

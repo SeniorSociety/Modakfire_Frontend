@@ -14,15 +14,28 @@ function SignUp() {
 	};
 
 	const onCreateNickname = () => {
-		axios.post('', { nickname: inputNickname }).then(res => {
+		const token: any = location.state;
+		axios({
+			method: 'post',
+			url: 'http://172.30.1.28:8000/users/nickname',
+			data: { nickname: inputNickname },
+			headers: {
+				Authorization: token,
+			},
+		}).then(res => {
 			console.log('닉네임등록', res.data);
+			localStorage.setItem('TOKEN', token);
+			history.push('/');
 		});
 	};
-	console.log('location', location);
 	return (
 		<div className="wrapper">
 			<div className="nicknameContainer">
-				<Input placeholder="닉네임을 입력하세요....." onChange={event => handleInput(event)} />
+				<Input
+					className="nicknameInput"
+					placeholder="닉네임을 입력하세요....."
+					onChange={event => handleInput(event)}
+				/>
 				<Button type="primary" onClick={onCreateNickname}>
 					확인
 				</Button>
