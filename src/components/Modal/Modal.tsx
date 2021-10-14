@@ -19,7 +19,7 @@ function SignUp() {
 	return (
 		<>
 			<Button type="primary" onClick={showModal}>
-				테스트 모달창!!
+				테스트 모달창!
 			</Button>
 			<Modal
 				title="닉네임 설정"
