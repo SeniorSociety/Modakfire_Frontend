@@ -6,15 +6,42 @@ import './SignIn.scss';
 function SignIn() {
 	const onLoginKakao = (data: any) => {
 		const accessToken = data.response.access_token;
-		const headers = {
-			Authorization: accessToken,
-		};
-		console.log('res data', data);
+		console.log('kakao token', accessToken);
 
-		// axios
-		// 	.post('', { headers })
-		// 	.then(res => console.log('카카오 로그인 res', res))
-		// 	.catch(err => console.error);
+		axios({
+			method: 'post',
+			url: 'http://172.30.1.18:8000/users/kakao',
+			headers: {
+				Authorization: accessToken,
+			},
+		}).then(res => {
+			console.log(res.data);
+			if (res.data.MESSAGE === 'SUCCESS') {
+				localStorage.setItem('TOKEN', res.data.token);
+			} else {
+				alert('오류가 발생 하였습니다.');
+			}
+		});
+	};
+
+	const onLoginNaver = (data: any) => {
+		console.log('naver data', data);
+		const accessToken = data.accessToken.accessToken;
+		console.log('naver token', accessToken);
+		axios({
+			method: 'post',
+			url: 'http://172.30.1.18:8000/users/naver',
+			headers: {
+				Authorization: data.accessToken.accessToken,
+			},
+		}).then(res => {
+			console.log(res.data);
+			if (res.data.MESSAGE === 'SUCCESS') {
+				localStorage.setItem('TOKEN', res.data.token);
+			} else {
+				alert('오류가 발생 하였습니다.');
+			}
+		});
 	};
 	return (
 		<div className="wrapper">
