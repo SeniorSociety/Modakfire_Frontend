@@ -21,7 +21,9 @@ function SignIn() {
 			},
 		}).then(res => {
 			console.log(res.data);
-			if (res.data.MESSAGE === 'SUCCESS') {
+			if (res.data.NEEDNICKNAME) {
+				history.push('/signup', res.data.TOKEN);
+			} else if (res.data.NEEDNICKNAME && res.data.MESSAGE === 'SUCCESS') {
 				localStorage.setItem('TOKEN', res.data.TOKEN);
 			} else {
 				alert('오류가 발생 하였습니다.');
@@ -41,7 +43,9 @@ function SignIn() {
 			},
 		}).then(res => {
 			console.log(res.data);
-			if (res.data.MESSAGE === 'SUCCESS') {
+			if (res.data.NEEDNICKNAME === 'TRUE') {
+				history.push('/signup', res.data.TOKEN);
+			} else if (res.data.NEEDNICKNAME && res.data.MESSAGE === 'SUCCESS') {
 				localStorage.setItem('TOKEN', res.data.TOKEN);
 			} else {
 				alert('오류가 발생 하였습니다.');
