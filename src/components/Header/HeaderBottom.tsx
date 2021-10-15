@@ -10,7 +10,6 @@ interface HeaderList {
 
 function HeaderBottom() {
 	const [isLogin, setIsLogin] = useState(false);
-	const [onClick, setOnClick] = useState(false);
 	const [listId, setListId] = useState({ id: null });
 	const history = useHistory();
 
@@ -29,7 +28,7 @@ function HeaderBottom() {
 
 	const onSignOut = () => {
 		localStorage.removeItem('TOKEN');
-		history.push('/');
+		window.location.replace('/');
 	};
 
 	const headerBottomList: HeaderList[] = [
@@ -56,8 +55,6 @@ function HeaderBottom() {
 
 	const paramList = isLogin ? LoginHeaderBottomList : headerBottomList;
 
-	// const trueOnClick = paramList[3].onClick === onSignOut ? setOnClick(true) : setOnClick(false);
-
 	return (
 		<>
 			<nav className="headerTopContainer">
@@ -66,12 +63,6 @@ function HeaderBottom() {
 			<nav className="headerBottomContainer">
 				{paramList.map(({ id, src, href, onClick }) => {
 					return (
-						// 	<img
-						// 		className={id === listId.id ? 'clickedIcon' : 'headerBottomIcon'}
-						// 		src={src}
-						// 		onClick={onClick}
-						// 	/>
-						// ) : (
 						<img
 							className={id === listId.id ? 'clickedIcon' : 'headerBottomIcon'}
 							src={src}
