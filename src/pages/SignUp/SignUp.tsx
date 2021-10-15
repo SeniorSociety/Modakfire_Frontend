@@ -25,7 +25,7 @@ function SignUp() {
 		}).then(res => {
 			console.log('닉네임등록', res.data);
 			localStorage.setItem('TOKEN', token);
-			history.push('/');
+			window.location.replace('/');
 		});
 	};
 	return (
