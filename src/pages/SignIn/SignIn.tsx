@@ -26,7 +26,7 @@ function SignIn() {
 			} else if (res.data.NEEDNICKNAME && res.data.MESSAGE === 'SUCCESS') {
 				alert('환영합니다!');
 				localStorage.setItem('TOKEN', res.data.TOKEN);
-				history.push('/');
+				window.location.replace('/');
 			} else {
 				alert('오류가 발생 하였습니다.');
 			}
