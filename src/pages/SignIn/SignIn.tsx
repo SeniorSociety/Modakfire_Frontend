@@ -39,7 +39,7 @@ function SignIn() {
 		console.log('naver token', accessToken);
 		axios({
 			method: 'post',
-			url: 'http://172.30.1.28:8000/users/naver',
+			url: 'http://172.30.1.2:8000/users/naver',
 			headers: {
 				Authorization: data.accessToken.accessToken,
 			},
@@ -50,7 +50,7 @@ function SignIn() {
 			} else if (res.data.MESSAGE === 'SUCCESS') {
 				alert('환영합니다!');
 				localStorage.setItem('TOKEN', res.data.TOKEN);
-				history.push('/');
+				window.location.replace('/');
 			} else {
 				alert('오류가 발생 하였습니다.');
 			}

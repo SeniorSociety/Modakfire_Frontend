@@ -17,7 +17,7 @@ function SignUp() {
 		const token: any = location.state;
 		axios({
 			method: 'post',
-			url: 'http://172.30.1.28:8000/users/nickname',
+			url: 'http://172.30.1.2:8000/users/nickname',
 			data: { nickname: inputNickname },
 			headers: {
 				Authorization: token,

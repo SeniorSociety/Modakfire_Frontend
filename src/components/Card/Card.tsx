@@ -76,7 +76,7 @@ function Card({
 						<img
 							src={mainPic}
 							alt="laughinman"
-							style={{ opacity: mainPic.length === 0 ? 0 : 1 }}
+							style={{ display: mainPic.length === 0 ? 'none' : 'block' }}
 							className="mainPic"
 						/>
 						<img
