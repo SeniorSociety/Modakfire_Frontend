@@ -5,6 +5,7 @@ import { API } from '../../config';
 import Card from '../../components/Card/Card';
 import History from '../../components/History/History';
 import Introduce from '../../components/Introduce/Introduce';
+import { ConfigurationServicePlaceholders } from 'aws-sdk/lib/config_service_placeholders';
 
 const NameCard = () => {
 	const history = useHistory();
@@ -24,19 +25,23 @@ const NameCard = () => {
 
 	const [data, setData] = useState();
 
+	// 네임카드 데이터 GET
+
 	useEffect(() => {
 		axios
 			.get(API.NAMECARD, {
 				headers: {
-					Authorization:
-						'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.Te32okoTxCk31WOFbT-LiVhTMcu_5IRPsEum3y930OQ',
+					Authorization: 'TOKEN',
 				},
 			})
 			.then(res => {
 				setData(res.data.MESSAGE);
+				setEdit(false);
 			})
 			.catch(error => console.log(error));
 	}, []);
+
+	// 네임카드 데이터 POST
 
 	function handleuploadData(e: any): void {
 		const formData = new FormData();
@@ -57,17 +62,21 @@ const NameCard = () => {
 		formData.append('userImage', userImage[0]);
 		const header = {
 			headers: {
-				Authorization:
-					'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.Te32okoTxCk31WOFbT-LiVhTMcu_5IRPsEum3y930OQ',
+				Authorization: 'TOKEN',
 				'Content-Type': 'multipart/form-data',
 			},
 		};
-		axios.post(API.NAMECARD, formData, header).then(res => {
-			history.push('/profile');
-			setEdit(false);
-		});
-
-		alert('명함제작이 완료되었습니다');
+		axios
+			.post(API.NAMECARD, formData, header)
+			.then(res => {
+				setEdit(false);
+				history.push('/profile');
+				alert('명함제작이 완료되었습니다');
+			})
+			.catch(error => {
+				console.log(error);
+				alert('다시 작성해주세요');
+			});
 	}
 
 	return (
