@@ -3,10 +3,22 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { setConstantValue } from 'typescript';
 import './Header.scss';
+import HeaderBottom from './HeaderBottom';
 
 function Header() {
 	const [isLogin, setIsLogin] = useState(false);
 	const history = useHistory();
+
+	const [width, setWidth] = useState(window.innerWidth);
+
+	const handleResize = () => {
+		const width = window.innerWidth;
+		setWidth(width);
+	};
+
+	useEffect(() => {
+		window.addEventListener('resize', handleResize);
+	}, []);
 
 	useEffect((): void => {
 		if (localStorage.getItem('TOKEN')) {
@@ -46,7 +58,8 @@ function Header() {
 		window.location.reload();
 	}
 
-	return (
+	console.log('width', width);
+	return width > 768 ? (
 		<nav className="headerContainer">
 			<div className="logo" onClick={moveToMain}>
 				<img src="./images/logo_color.png" alt="x" className="mainLogo" />
@@ -69,6 +82,8 @@ function Header() {
 				)}
 			</div>
 		</nav>
+	) : (
+		<HeaderBottom />
 	);
 }
 
