@@ -1,25 +1,49 @@
-import React, { useState } from 'react';
+import { stringify } from 'querystring';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { setConstantValue } from 'typescript';
 import './Header.scss';
 
 function Header() {
 	const [isLogin, setIsLogin] = useState(false);
 	const history = useHistory();
 
+	useEffect((): void => {
+		if (localStorage.getItem('TOKEN')) {
+			setIsLogin(true);
+		}
+	}, []);
+
+	function checkTOKEN(): void {
+		if (isLogin === false) {
+			history.push('/signin');
+			alert('로그인이 필요합니다');
+		}
+	}
+
 	function moveToMain(): void {
 		history.push('/');
+	}
+
+	function moveToProfile(): void {
+		history.push('/mypage');
+		checkTOKEN();
+	}
+
+	function moveToNamecard(): void {
+		history.push('/profile');
+		checkTOKEN();
 	}
 
 	function moveToLogin(): void {
 		history.push('/signin');
 	}
 
-	function moveToNamecard(): void {
-		history.push('/profile');
-	}
-
-	function moveToMyPage(): void {
-		history.push('/mypage');
+	function moveToLogout(): void {
+		localStorage.removeItem('TOKEN');
+		history.push('/main');
+		alert('로그아웃되었습니다');
+		window.location.reload();
 	}
 
 	return (
@@ -31,7 +55,7 @@ function Header() {
 				<div className="signIn" onClick={moveToNamecard}>
 					<div className="namecard">명함</div>
 				</div>
-				<div className="signIn" onClick={moveToMyPage}>
+				<div className="signIn" onClick={moveToProfile}>
 					<div className="profile">프로필</div>
 				</div>
 				{!isLogin ? (
@@ -39,8 +63,8 @@ function Header() {
 						<div className="login">로그인</div>
 					</div>
 				) : (
-					<div className="logIn" onClick={moveToLogin}>
-						<div className="logout"></div>
+					<div className="logIn" onClick={moveToLogout}>
+						<div className="login">나가기</div>
 					</div>
 				)}
 			</div>
