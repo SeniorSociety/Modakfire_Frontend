@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import Slider from 'react-slick';
 import './MainSlider.scss';
 import 'slick-carousel/slick/slick.css';
@@ -6,6 +7,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { OmitProps } from 'antd/lib/transfer/ListBody';
 
 function MainSlider(props: any) {
+	const history = useHistory();
 	const settings = {
 		infinite: true,
 		slidesToShow: 1,
@@ -16,12 +18,21 @@ function MainSlider(props: any) {
 		arrows: false,
 	};
 
+	const moveTo = (id: number) => {
+		history.push(`/board-list/${id}`);
+	};
+
 	return (
 		<Slider {...settings}>
 			{props.props.map(props => (
 				<div className="mainSlider" key={props.gallery_id}>
 					<img src={props.gallery_image} alt={props.gallery_id} className="slideImage" />
-					<div className="spanContainer">
+					<div
+						className="spanContainer"
+						onClick={() => {
+							moveTo(props.gallery_id);
+						}}
+					>
 						<span className="phrase">{props.gallery_name}</span>
 					</div>
 				</div>

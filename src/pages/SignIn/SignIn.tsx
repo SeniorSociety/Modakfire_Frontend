@@ -39,7 +39,7 @@ function SignIn() {
 		console.log('naver token', accessToken);
 		axios({
 			method: 'post',
-			url: 'http://172.30.1.2:8000/users/naver',
+			url: 'http://172.30.1.24:8000/users/naver',
 			headers: {
 				Authorization: data.accessToken.accessToken,
 			},
@@ -82,7 +82,11 @@ function SignIn() {
 		<div className="wrapper">
 			<div className="contentContainer">
 				<div className="logoBox">
-					<img className="logo" src="./images/senior-care-logo.png" alt="모닥불 로고" />
+					<img
+						className="logo"
+						src="https://media.istockphoto.com/vectors/young-man-using-smartphone-to-communicate-happy-teen-boy-taking-with-vector-id1224464061?b=1&k=20&m=1224464061&s=612x612&w=0&h=evdOYG-pTLeq6I3P1LzxY9Ptl7_COge6aeHxRP0Q3jM="
+						alt="모닥불 로고"
+					/>
 				</div>
 				<div className="socialLoginContainer">
 					<p className="socialLoginText">간편 로그인</p>

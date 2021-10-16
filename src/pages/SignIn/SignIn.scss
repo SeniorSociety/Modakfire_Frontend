@@ -2,8 +2,10 @@
 	display: flex;
 	justify-content: center;
 	text-align: center;
+	margin-top: 100px;
 
 	.logo {
+		object-fit: cover;
 		width: 310px;
 		height: 310px;
 	}
@@ -11,7 +13,7 @@
 	.socialLoginContainer {
 		margin-top: 30px;
 		padding: 20px;
-		background-color: #f7f7f7;
+		// background-color: #f7f7f7;
 
 		.socialLoginText {
 			text-align: left;
@@ -20,16 +22,18 @@
 		}
 
 		.kakaoLogin {
-			width: 366px;
+			width: 330px;
 			height: 80px;
 			cursor: pointer;
 		}
 
 		.naverLogin {
-			width: 366px;
+			object-fit: cover;
+			width: 330px;
 			height: 80px;
 			margin-bottom: 20px;
 			cursor: pointer;
+			border-radius: 10px;
 		}
 	}
 }

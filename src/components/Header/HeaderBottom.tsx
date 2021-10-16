@@ -16,17 +16,25 @@ function HeaderBottom() {
 	useEffect(() => {
 		if (localStorage.getItem('TOKEN')) {
 			setIsLogin(true);
-		} else {
-			setIsLogin(false);
 		}
 	}, []);
 
+	function checkTOKEN(id: any): void {
+		history.push('/signin');
+		alert('로그인이 필요합니다');
+	}
+
 	const handleNavigate = (clickId: number, href: string) => {
+		if (isLogin === false && clickId !== 0) {
+			checkTOKEN(listId);
+			return;
+		}
 		history.push(href);
 		setListId({ id: clickId });
 	};
 
 	const onSignOut = () => {
+		alert('로그아웃되었습니다');
 		localStorage.removeItem('TOKEN');
 		window.location.replace('/');
 	};
@@ -48,7 +56,7 @@ function HeaderBottom() {
 		{ id: 2, src: 'https://img.icons8.com/ios/50/000000/user--v1.png', href: '/mypage' },
 		{
 			id: 3,
-			src: 'https://img.icons8.com/ios/60/000000/logout-rounded--v1.png',
+			src: 'https://img.icons8.com/material/50/000000/logout-rounded-left--v1.png',
 			onClick: onSignOut,
 		},
 	];
@@ -58,7 +66,14 @@ function HeaderBottom() {
 	return (
 		<>
 			<nav className="headerTopContainer">
-				<img src="./images/logo_color.png" alt="x" className="mainLogo" />
+				<img
+					src="./images/logo_color.png"
+					alt="x"
+					className="mainLogo"
+					onClick={() => {
+						handleNavigate(0, '/');
+					}}
+				/>
 			</nav>
 			<nav className="headerBottomContainer">
 				{paramList.map(({ id, src, href, onClick }) => {
