@@ -74,7 +74,7 @@ function MyPage() {
 	};
 
 	useEffect(() => {
-		axios.get(`./data/myPageData.json`).then(res => {
+		axios.get(`${API.PROFILE}`).then(res => {
 			setData(res.data.MESSAGE);
 		});
 	}, []);

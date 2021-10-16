@@ -24,7 +24,7 @@ function Introduce({ edit, handleUploadData, introduce, setIntroduce }: editProp
 						<div className="square"></div>
 						<div className="line"></div>
 						<div className="leftContainer"></div>
-						<div className="rightContainer">
+						<div className="introduceRightContainer">
 							<header>소개 및 관심사</header>
 							<textarea
 								placeholder="자신을 소개해주세요"
@@ -47,7 +47,7 @@ function Introduce({ edit, handleUploadData, introduce, setIntroduce }: editProp
 					<div className="square"></div>
 					<div className="line"></div>
 					<div className="leftContainer"></div>
-					<div className="rightContainer">
+					<div className="introduceRightContainer">
 						<header>소개 및 관심사</header>
 						<article>{introduce}</article>
 					</div>

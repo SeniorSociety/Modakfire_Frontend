@@ -5,7 +5,6 @@ import BoardList from './pages/BoardList/BoardList';
 import BoardViewer from './pages/Board/BoardViewer';
 import BoardPost from './pages/Board/BoardPost';
 import NameCard from './pages/NameCard/NameCard';
-import Footer from './components/Footer/Footer';
 import SignIn from './pages/SignIn/SignIn';
 import MyPage from './pages/MyPage/MyPage';
 import SignUp from './pages/SignUp/SignUp';
@@ -25,7 +24,6 @@ function Routes() {
 				<Route exact path="/mypage" component={MyPage} />
 				<Route path="*" component={Main} />
 			</Switch>
-			<Footer />
 		</Router>
 	);
 }

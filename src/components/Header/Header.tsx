@@ -11,6 +11,8 @@ function Header() {
 
 	const [width, setWidth] = useState(window.innerWidth);
 
+	// media query handle eventlistner : resize
+
 	const handleResize = () => {
 		const width = window.innerWidth;
 		setWidth(width);
@@ -19,6 +21,8 @@ function Header() {
 	useEffect(() => {
 		window.addEventListener('resize', handleResize);
 	}, []);
+
+	// TOKEN Verification
 
 	useEffect((): void => {
 		if (localStorage.getItem('TOKEN')) {
@@ -58,7 +62,6 @@ function Header() {
 		window.location.reload();
 	}
 
-	console.log('width', width);
 	return width > 768 ? (
 		<nav className="headerContainer">
 			<div className="logo" onClick={moveToMain}>
