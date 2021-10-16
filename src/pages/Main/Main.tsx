@@ -24,8 +24,8 @@ function Main() {
 	useEffect(() => {
 		const getItems = async (): Promise<void> => {
 			try {
-				// const res = await axios.get(API.GALLERIES);
-				const res = await axios.get('./data/cssData.json');
+				const res = await axios.get(API.GALLERIES);
+				// const res = await axios.get('./data/cssData.json');
 				const result = res.data.MESSAGE;
 				setGalleryInfo(result);
 			} catch (error) {
@@ -35,7 +35,6 @@ function Main() {
 		getItems();
 	}, []);
 
-	// console.log(galleryInfo);
 	return (
 		<>
 			<MainSlider props={galleryInfo} />
