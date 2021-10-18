@@ -114,7 +114,7 @@ function SignIn() {
 						onSuccess={result => onLoginNaver(result)}
 						onFailure={() => console.error()}
 					/>
-
+					<div></div>
 					{/* <GoogleLogin
 						clientId="115431303421-gbp4ok1k92vf2k3a5e19kb4hbffhuml1.apps.googleusercontent.com"
 						render={(props: any) => (
