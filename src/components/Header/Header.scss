@@ -25,6 +25,7 @@
 			height: 60px;
 			object-fit: contain;
 			margin-left: 20px;
+			cursor: pointer;
 		}
 	}
 
@@ -36,6 +37,7 @@
 			margin: 2px;
 			font-weight: 900;
 			list-style: none;
+			cursor: pointer;
 			.namecard,
 			.profile,
 			.login {
