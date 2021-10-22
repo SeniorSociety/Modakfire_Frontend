@@ -32,7 +32,7 @@ RUN npm run build
 FROM nginx
 RUN rm /etc/nginx/conf.d/default.conf
 
-# host pc 의 nginx.conf 를 아래 경로에 복사
+# host pc 의 nginx.conf 를 아래 경로에 복사!
 
 COPY ./nginx.conf /etc/nginx/conf.d
 
