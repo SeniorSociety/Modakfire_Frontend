@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router';
 import axios from 'axios';
 import KakaoLogin from 'react-kakao-login';
+import { API } from '../../config';
 // import GoogleLogin from 'react-google-login';
 import NaverLogin from '@cereme/react-naver-login';
 import './SignIn.scss';
@@ -15,7 +16,7 @@ function SignIn() {
 
 		axios({
 			method: 'post',
-			url: 'http://172.30.1.28:8000/users/kakao',
+			url: `${API.SIGN}/users/kakao`,
 			headers: {
 				Authorization: accessToken,
 			},
@@ -39,7 +40,7 @@ function SignIn() {
 		console.log('naver token', accessToken);
 		axios({
 			method: 'post',
-			url: 'http://172.30.1.24:8000/users/naver',
+			url: `${API.SIGN}/users/naver`,
 			headers: {
 				Authorization: data.accessToken.accessToken,
 			},
