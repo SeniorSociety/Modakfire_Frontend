@@ -16,7 +16,7 @@ function SignIn() {
 
 		axios({
 			method: 'post',
-			url: `http://172.30.1.10:8000/users/kakao`,
+			url: `${API.SIGN}/users/kakao`,
 			headers: {
 				Authorization: accessToken,
 			},
@@ -40,7 +40,7 @@ function SignIn() {
 		console.log('naver token', accessToken);
 		axios({
 			method: 'post',
-			url: `http://172.30.1.10:8000/users/naver`,
+			url: `${API.SIGN}/users/naver`,
 			headers: {
 				Authorization: data.accessToken.accessToken,
 			},
