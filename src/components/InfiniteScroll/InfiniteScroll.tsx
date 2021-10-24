@@ -36,9 +36,7 @@ function InfiniteScroll() {
 
 			// console.log('item');
 
-			setDataList(prevState => {
-				return [...result];
-			});
+			setDataList([...result]);
 
 			setPageIndex(prevState => {
 				if (res.data.IS_NEXT) {
@@ -73,7 +71,7 @@ function InfiniteScroll() {
 		return () => io.disconnect();
 	}, [dataList]);
 
-	// console.log('id', id);
+	console.log('id', dataList);
 	return (
 		<div>
 			<section className="post-grid" ref={viewport}>
@@ -96,7 +94,7 @@ function InfiniteScroll() {
 					console.log(dataList);
 					return (
 						<>
-							{dataList.length !== 1 ? (
+							{dataList.length > 0 ? (
 								<div
 									key={index}
 									className={`${lastPost && 'last'} post`}

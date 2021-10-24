@@ -35,8 +35,10 @@ const NameCard = () => {
 				},
 			})
 			.then(res => {
-				setData(res.data.MESSAGE);
-				setEdit(false);
+				if (res.data.MESSAGE.name !== null) {
+					setData(res.data.MESSAGE);
+					setEdit(false);
+				}
 			})
 			.catch(error => console.log(error));
 	}, []);
@@ -80,30 +82,40 @@ const NameCard = () => {
 	}
 
 	return (
-		<div>
-			<Card
-				edit={edit}
-				data={data}
-				setUserImage={setUserImage}
-				setUserName={setUserName}
-				setUserSlogan={setUserSlogan}
-				setUserEmail={setUserEmail}
-				setUserLocal={setUserLocal}
-			/>
-			<History
-				edit={edit}
-				data={data}
-				setHistoryYear={setHistoryYear}
-				setHistoryTitle={setHistoryTitle}
-				setHistorySubTitle={setHistorySubtitle}
-			/>
-			<Introduce
-				edit={edit}
-				introduce={introduce}
-				setIntroduce={setIntroduce}
-				handleUploadData={handleuploadData}
-			/>
-		</div>
+		<>
+			{/* <button
+				onClick={() => {
+					setEdit(true);
+				}}
+			>
+				수정
+			</button> */}
+			<div>
+				<Card
+					edit={edit}
+					data={data}
+					setUserImage={setUserImage}
+					setUserName={setUserName}
+					setUserSlogan={setUserSlogan}
+					setUserEmail={setUserEmail}
+					setUserLocal={setUserLocal}
+				/>
+				<History
+					edit={edit}
+					data={data}
+					setHistoryYear={setHistoryYear}
+					setHistoryTitle={setHistoryTitle}
+					setHistorySubTitle={setHistorySubtitle}
+				/>
+				<Introduce
+					data={data}
+					edit={edit}
+					introduce={introduce}
+					setIntroduce={setIntroduce}
+					handleUploadData={handleuploadData}
+				/>
+			</div>
+		</>
 	);
 };
 
