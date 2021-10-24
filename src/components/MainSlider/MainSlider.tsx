@@ -32,7 +32,7 @@ function MainSlider(props: any) {
 							moveTo(props.gallery_id);
 						}}
 					>
-						<span className="phrase">{props.gallery_name}</span>
+						<span className="phrase">{props.gallery_name}에 관심 있으신가요?</span>
 					</div>
 				</div>
 			))}
