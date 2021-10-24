@@ -4,7 +4,6 @@ import Slider from 'react-slick';
 import './MainSlider.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { OmitProps } from 'antd/lib/transfer/ListBody';
 
 function MainSlider(props: any) {
 	const history = useHistory();

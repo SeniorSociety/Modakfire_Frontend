@@ -47,7 +47,7 @@ function InfiniteScroll() {
 			const res = await axios.get(`./data/mock1.json`);
 			const result = res.data.MESSAGE;
 
-			console.log('item');
+			// console.log('item');
 
 			setDataList(prevState => {
 				return [...result, ...prevState];
