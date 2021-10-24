@@ -23,7 +23,7 @@ function SignIn() {
 		})
 			.then(res => {
 				console.log(res.data);
-				if (!res.data.NEEDNICKNAME) {
+				if (res.data.NEEDNICKNAME) {
 					history.push('/signup', res.data.TOKEN);
 				} else if (res.data.NEEDNICKNAME && res.data.MESSAGE === 'SUCCESS') {
 					alert('환영합니다!');
@@ -46,7 +46,7 @@ function SignIn() {
 			},
 		}).then(res => {
 			console.log(res.data);
-			if (!res.data.NEEDNICKNAME) {
+			if (res.data.NEEDNICKNAME) {
 				history.push('/signup', res.data.TOKEN);
 			} else if (res.data.NEEDNICKNAME && res.data.MESSAGE === 'SUCCESS') {
 				alert('환영합니다!');

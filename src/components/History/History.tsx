@@ -80,7 +80,7 @@ function History({ edit, data, setHistoryYear, setHistoryTitle, setHistorySubTit
 					</>
 				) : (
 					<>
-						{data.works.map((data, index: number) => {
+						{data.works?.map((data, index: number) => {
 							return (
 								<section key={index} className="workContainer">
 									<div className="leftContainer">
