@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import Post from './BoardViewer/Post';
 import Comment from './BoardViewer/Comment';
 import axios from 'axios';
@@ -9,7 +9,7 @@ import './Board.scss';
 
 function BoardViewer() {
 	const { view_id }: any = useParams();
-
+	const location = useLocation();
 	interface PostInfo {
 		title: string;
 		content: string;
@@ -59,7 +59,7 @@ function BoardViewer() {
 		if (textContent) {
 			axios({
 				method: 'post',
-				url: `${API.GALLERIES}/${view_id}/comments`,
+				url: `${API.GALLERIES}/${location.state}/${view_id}/comments`,
 				data: { content: textContent },
 				headers: {
 					Authorization: localStorage.getItem('TOKEN'),
@@ -67,7 +67,7 @@ function BoardViewer() {
 			})
 				.then(response => {
 					axios
-						.get(`${API.GALLERIES}/${view_id}/comments?page=2`)
+						.get(`${API.GALLERIES}/${location.state}/${view_id}/comments?page=2`)
 						.then(res => {
 							setCommentContent(res.data.MESSAGE);
 						})
@@ -83,7 +83,7 @@ function BoardViewer() {
 
 	useEffect(() => {
 		axios
-			.get(`${API.GALLERIES}/${view_id}/comments?page=1`)
+			.get(`${API.GALLERIES}/${location.state}/${view_id}/comments?page=1`)
 			.then(res => {
 				setCommentContent(res.data.MESSAGE);
 			})
@@ -94,7 +94,7 @@ function BoardViewer() {
 
 	useEffect(() => {
 		axios
-			.get(`${API.GALLERIES}/${view_id}`)
+			.get(`${API.GALLERIES}/${location.state}/${view_id}`)
 			.then(res => {
 				setPostContent(res.data.MESSAGE);
 			})
@@ -102,7 +102,6 @@ function BoardViewer() {
 				console.log(error);
 			});
 	}, []);
-
 	return (
 		<>
 			<Post postContent={postContent} setPostContent={setPostContent} />
