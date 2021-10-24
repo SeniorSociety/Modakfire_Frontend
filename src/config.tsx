@@ -1,6 +1,8 @@
-const BASE_URL = 'internal-BACK-Internal-ALB-1927362478.ap-northeast-2.elb.amazonaws.com';
+const BASE_URL = 'http://172.30.1.51:8000';
 
 export const API = {
+	SIGN: `${BASE_URL}/users`,
+	SIGNUP: `${BASE_URL}/users/nickname`,
 	GALLERIES: `${BASE_URL}/galleries`,
 	BOARD_VIEW: `${BASE_URL}/board-viewer`,
 	SIGNIN: `${BASE_URL}/users`,

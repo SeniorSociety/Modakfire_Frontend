@@ -4,7 +4,6 @@ import Slider from 'react-slick';
 import './MainSlider.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { OmitProps } from 'antd/lib/transfer/ListBody';
 
 function MainSlider(props: any) {
 	const history = useHistory();
@@ -33,7 +32,7 @@ function MainSlider(props: any) {
 							moveTo(props.gallery_id);
 						}}
 					>
-						<span className="phrase">{props.gallery_name}</span>
+						<span className="phrase">{props.gallery_name}에 관심 있으신가요?</span>
 					</div>
 				</div>
 			))}

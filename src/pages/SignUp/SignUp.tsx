@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLocation, useHistory } from 'react-router';
 import { Input, Button } from 'antd';
 import axios from 'axios';
+import { API } from '../../config';
 
 function SignUp() {
 	const history = useHistory();
@@ -17,7 +18,7 @@ function SignUp() {
 		const token: any = location.state;
 		axios({
 			method: 'post',
-			url: 'http://172.30.1.2:8000/users/nickname',
+			url: `${API.SIGNUP}`,
 			data: { nickname: inputNickname },
 			headers: {
 				Authorization: token,
@@ -25,6 +26,7 @@ function SignUp() {
 		}).then(res => {
 			console.log('닉네임등록', res.data);
 			localStorage.setItem('TOKEN', token);
+			alert('회원가입을 축하합니다!');
 			window.location.replace('/');
 		});
 	};

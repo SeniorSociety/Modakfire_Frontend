@@ -16,7 +16,7 @@ function Routes() {
 			<Switch>
 				<Route exact path="/" component={Main} />
 				<Route exact path="/board-list/:id" component={BoardList} />
-				<Route exact path="/board-post" component={BoardPost} />
+				<Route exact path="/board-post/:id" component={BoardPost} />
 				<Route exact path="/board-viewer/:view_id" component={BoardViewer} />
 				<Route exact path="/signin" component={SignIn} />
 				<Route exact path="/signup" component={SignUp} />

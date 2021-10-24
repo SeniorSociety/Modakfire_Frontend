@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { API } from '../../config';
 import './InfiniteScroll.scss';
@@ -18,23 +18,10 @@ interface PostData {
 
 function InfiniteScroll() {
 	const history = useHistory();
-	const location = useLocation();
-	const id = location.pathname.split('/')[2];
+	const { id }: any = useParams();
 
 	const [pageIndex, setPageIndex] = useState<number>(1);
-	const [dataList, setDataList] = useState([
-		{
-			id: 0,
-			title: '',
-			thumbnail: '',
-			view_count: 0,
-			created_at: '',
-			updated_at: '',
-			comment_count: 0,
-			user_nickname: '',
-			user_id: 0,
-		},
-	]);
+	const [dataList, setDataList] = useState([{}]);
 
 	const viewport = useRef<HTMLElement | null>(null);
 	const target = useRef<HTMLDivElement | null>(null);
@@ -43,11 +30,11 @@ function InfiniteScroll() {
 		if (!pageIndex) return;
 
 		try {
-			// const res = await axios.get(`${API.GALLERIES}/${id}?page=${pageIndex}`);
-			const res = await axios.get(`./data/mock1.json`);
+			const res = await axios.get(`${API.GALLERIES}/${id}?page=${pageIndex}`);
+			// const res = await axios.get(`./data/mock1.json`);
 			const result = res.data.MESSAGE;
 
-			console.log('item');
+			// console.log('item');
 
 			setDataList(prevState => {
 				return [...result, ...prevState];
@@ -86,8 +73,9 @@ function InfiniteScroll() {
 		return () => io.disconnect();
 	}, [dataList]);
 
+	console.log('id', id);
 	return (
-		<div className="wrapper">
+		<div>
 			<section className="post-grid" ref={viewport}>
 				{dataList.map((post: PostData, index: number) => {
 					const lastPost = index === dataList.length - 1;
@@ -95,7 +83,7 @@ function InfiniteScroll() {
 					function handleDate() {
 						const createDate = post.created_at;
 						const cutStr = function (a: number, b: number) {
-							return createDate.slice(a, b);
+							return createDate?.slice(a, b);
 						};
 
 						const today = new Date().getDate() === new Date(createDate).getDate();
@@ -105,24 +93,34 @@ function InfiniteScroll() {
 						return updateTime;
 					}
 
+					console.log(dataList);
 					return (
-						<div
-							key={index}
-							className={`${lastPost && 'last'} post`}
-							ref={lastPost ? target : null}
-							onClick={() => {
-								history.push(`/board-viewer/${post.id}`);
-							}}
-						>
-							<img alt="thumbnail" src={post.thumbnail} />
-							<article className="postWrap">
-								<h2>{post.title}</h2>
-								<div className="idTimeCount">
-									<p className="user_nickname forCss">{post.user_nickname}</p>
-									<p className="created_at forCss">{handleDate()}</p>
+						<>
+							{dataList.length > 0 ? (
+								<div
+									key={index}
+									className={`${lastPost && 'last'} post`}
+									ref={lastPost ? target : null}
+									onClick={() => {
+										history.push(`/board-viewer/${post.id}`, id);
+									}}
+								>
+									<img alt="thumbnail" src={'/images/noThumbnail.png'} />
+									<article className="postWrap">
+										<h2>{post.title}</h2>
+										<div className="idTimeCount">
+											<p className="user_nickname forCss">{post.user_nickname}</p>
+											<p className="created_at forCss">{handleDate()}</p>
+										</div>
+									</article>
 								</div>
-							</article>
-						</div>
+							) : (
+								<div>
+									<img src="/images/noBoard.png" alt="noBoard" width={'100%'} />
+									<span>첫 게시글을 작성해주세요</span>
+								</div>
+							)}
+						</>
 					);
 				})}
 			</section>
