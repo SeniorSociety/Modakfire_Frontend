@@ -21,19 +21,7 @@ function InfiniteScroll() {
 	const { id }: any = useParams();
 
 	const [pageIndex, setPageIndex] = useState<number>(1);
-	const [dataList, setDataList] = useState([
-		{
-			id: 0,
-			title: '',
-			thumbnail: '',
-			view_count: 0,
-			created_at: '',
-			updated_at: '',
-			comment_count: 0,
-			user_nickname: '',
-			user_id: 0,
-		},
-	]);
+	const [dataList, setDataList] = useState([{}]);
 
 	const viewport = useRef<HTMLElement | null>(null);
 	const target = useRef<HTMLDivElement | null>(null);
@@ -87,7 +75,7 @@ function InfiniteScroll() {
 
 	console.log('id', id);
 	return (
-		<div className="wrapper">
+		<div>
 			<section className="post-grid" ref={viewport}>
 				{dataList.map((post: PostData, index: number) => {
 					const lastPost = index === dataList.length - 1;
@@ -95,7 +83,7 @@ function InfiniteScroll() {
 					function handleDate() {
 						const createDate = post.created_at;
 						const cutStr = function (a: number, b: number) {
-							return createDate.slice(a, b);
+							return createDate?.slice(a, b);
 						};
 
 						const today = new Date().getDate() === new Date(createDate).getDate();
@@ -105,6 +93,7 @@ function InfiniteScroll() {
 						return updateTime;
 					}
 
+					console.log(dataList);
 					return (
 						<div
 							key={index}
@@ -121,8 +110,13 @@ function InfiniteScroll() {
 									<p className="user_nickname forCss">{post.user_nickname}</p>
 									<p className="created_at forCss">{handleDate()}</p>
 								</div>
-							</article>
-						</div>
+							) : (
+								<div>
+									<img src="/images/noBoard.png" alt="noBoard" width={'100%'} />
+									<span>첫 게시글을 작성해주세요</span>
+								</div>
+							)}
+						</>
 					);
 				})}
 			</section>
