@@ -16,22 +16,22 @@ function SignIn() {
 
 		axios({
 			method: 'post',
-			url: `${API.SIGN}/users/kakao`,
+			url: `${API.SIGN}/kakao`,
 			headers: {
 				Authorization: accessToken,
 			},
-		}).then(res => {
-			console.log(res.data);
-			if (res.data.NEEDNICKNAME) {
-				history.push('/signup', res.data.TOKEN);
-			} else if (res.data.NEEDNICKNAME && res.data.MESSAGE === 'SUCCESS') {
-				alert('환영합니다!');
-				localStorage.setItem('TOKEN', res.data.TOKEN);
-				window.location.replace('/');
-			} else {
-				alert('오류가 발생 하였습니다.');
-			}
-		});
+		})
+			.then(res => {
+				console.log(res.data);
+				if (!res.data.NEEDNICKNAME) {
+					history.push('/signup', res.data.TOKEN);
+				} else if (res.data.NEEDNICKNAME && res.data.MESSAGE === 'SUCCESS') {
+					alert('환영합니다!');
+					localStorage.setItem('TOKEN', res.data.TOKEN);
+					window.location.replace('/');
+				}
+			})
+			.catch(err => console.error(err));
 	};
 
 	const onLoginNaver = (data: any) => {
@@ -40,15 +40,15 @@ function SignIn() {
 		console.log('naver token', accessToken);
 		axios({
 			method: 'post',
-			url: `${API.SIGN}/users/naver`,
+			url: `${API.SIGN}/naver`,
 			headers: {
 				Authorization: data.accessToken.accessToken,
 			},
 		}).then(res => {
 			console.log(res.data);
-			if (res.data.NEEDNICKNAME) {
+			if (!res.data.NEEDNICKNAME) {
 				history.push('/signup', res.data.TOKEN);
-			} else if (res.data.MESSAGE === 'SUCCESS') {
+			} else if (res.data.NEEDNICKNAME && res.data.MESSAGE === 'SUCCESS') {
 				alert('환영합니다!');
 				localStorage.setItem('TOKEN', res.data.TOKEN);
 				window.location.replace('/');
