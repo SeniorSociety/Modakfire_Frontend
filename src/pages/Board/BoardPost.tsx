@@ -42,8 +42,7 @@ const BoardPost = () => {
 			url: `${API.GALLERIES}/1`,
 			data: form,
 			headers: {
-				Authorization:
-					'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.Te32okoTxCk31WOFbT-LiVhTMcu_5IRPsEum3y930OQ',
+				Authorization: localStorage.getItem('TOKEN'),
 			},
 		})
 			.then(response => {
@@ -63,8 +62,7 @@ const BoardPost = () => {
 					axios
 						.post(`${API.GALLERIES}/images`, formData, {
 							headers: {
-								Authorization:
-									'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.Te32okoTxCk31WOFbT-LiVhTMcu_5IRPsEum3y930OQ',
+								Authorization: localStorage.getItem('TOKEN'),
 								'content-type': 'multipart/formdata',
 							},
 						})
