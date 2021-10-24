@@ -3,12 +3,13 @@ import { useState } from 'react';
 import './Introduce.scss';
 
 interface editProps {
+	data: any;
 	edit: boolean;
 	handleUploadData: (e: any) => void;
 	setIntroduce: (introduce: string) => void;
 	introduce: string;
 }
-function Introduce({ edit, handleUploadData, introduce, setIntroduce }: editProps) {
+function Introduce({ data, edit, handleUploadData, introduce, setIntroduce }: editProps) {
 	const [contents, setContents] = useState<number>(0);
 
 	function handleCount(e: any): void {
@@ -49,7 +50,7 @@ function Introduce({ edit, handleUploadData, introduce, setIntroduce }: editProp
 					<div className="leftContainer"></div>
 					<div className="introduceRightContainer">
 						<header>소개 및 관심사</header>
-						<article>{introduce}</article>
+						<article>{data.introduce}</article>
 					</div>
 				</section>
 			)}

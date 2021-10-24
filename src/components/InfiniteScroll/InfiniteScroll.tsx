@@ -43,8 +43,8 @@ function InfiniteScroll() {
 		if (!pageIndex) return;
 
 		try {
-			// const res = await axios.get(`${API.GALLERIES}/${id}?page=${pageIndex}`);
-			const res = await axios.get(`./data/mock1.json`);
+			const res = await axios.get(`${API.GALLERIES}/${id}?page=${pageIndex}`);
+			// const res = await axios.get(`./data/mock1.json`);
 			const result = res.data.MESSAGE;
 
 			console.log('item');
@@ -114,7 +114,7 @@ function InfiniteScroll() {
 								history.push(`/board-viewer/${post.id}`);
 							}}
 						>
-							<img alt="thumbnail" src={post.thumbnail} />
+							<img alt="thumbnail" src="../public/images/logo_color.png" />
 							<article className="postWrap">
 								<h2>{post.title}</h2>
 								<div className="idTimeCount">

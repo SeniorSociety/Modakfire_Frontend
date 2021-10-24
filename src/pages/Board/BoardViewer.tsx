@@ -62,13 +62,12 @@ function BoardViewer() {
 				url: `${API.GALLERIES}/${view_id}/comments`,
 				data: { content: textContent },
 				headers: {
-					Authorization:
-						'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.Te32okoTxCk31WOFbT-LiVhTMcu_5IRPsEum3y930OQ',
+					Authorization: localStorage.getItem('TOKEN'),
 				},
 			})
 				.then(response => {
 					axios
-						.get(`${API.GALLERIES}/${view_id}/comments?page=2`)
+						.get(`${API.GALLERIES}/${view_id}/comments?page=1`)
 						.then(res => {
 							setCommentContent(res.data.MESSAGE);
 						})

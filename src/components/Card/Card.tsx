@@ -105,13 +105,13 @@ function Card({
 			) : (
 				<div className="cardContainer">
 					<div className="leftContainer">
-						<img src={data.userImage} alt="userImage" />
+						<img src={data.image} alt="userImage" />
 					</div>
 					<div className="rightContainer">
-						<p className="name">{data.userName}</p>
-						<p className="title">{data.userSlogan}</p>
-						<span>{data.userLocal}</span>
-						<span>{data.userEmail}</span>
+						<p className="name">{data.name}</p>
+						<p className="title">{data.slogan}</p>
+						<span>{data.location}</span>
+						<span>{data.email}</span>
 					</div>
 				</div>
 			)}

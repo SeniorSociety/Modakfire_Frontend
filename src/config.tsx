@@ -1,4 +1,4 @@
-const BASE_URL = 'internal-BACK-Internal-ALB-1927362478.ap-northeast-2.elb.amazonaws.com';
+const BASE_URL = 'http://172.30.1.10:8000';
 
 export const API = {
 	SIGN: BASE_URL,

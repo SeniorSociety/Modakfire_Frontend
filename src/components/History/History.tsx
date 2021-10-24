@@ -80,18 +80,18 @@ function History({ edit, data, setHistoryYear, setHistoryTitle, setHistorySubTit
 					</>
 				) : (
 					<>
-						{histories.map((history, index: number) => {
+						{data.works.map((history, index: number) => {
 							return (
 								<section key={index} className="workContainer">
 									<div className="leftContainer">
 										<div className="yearContainer">
-											<span>{data.historyYear[index]}</span>
+											<span>{data.works[index].year}</span>
 										</div>
 										<div className="yearIcon"></div>
 									</div>
 									<div className="rightContainer">
-										<div className="title">{data.historyTitle[index]}</div>
-										<div className="subtitle">{data.historySubtitle[index]}</div>
+										<div className="title">{data.works[index].title}</div>
+										<div className="subtitle">{data.works[index].subtitle}</div>
 									</div>
 								</section>
 							);

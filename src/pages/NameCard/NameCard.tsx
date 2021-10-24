@@ -31,7 +31,7 @@ const NameCard = () => {
 		axios
 			.get(API.NAMECARD, {
 				headers: {
-					Authorization: 'TOKEN',
+					Authorization: localStorage.getItem('TOKEN'),
 				},
 			})
 			.then(res => {
@@ -62,7 +62,7 @@ const NameCard = () => {
 		formData.append('userImage', userImage[0]);
 		const header = {
 			headers: {
-				Authorization: 'TOKEN',
+				Authorization: localStorage.getItem('TOKEN'),
 				'Content-Type': 'multipart/form-data',
 			},
 		};
@@ -80,30 +80,40 @@ const NameCard = () => {
 	}
 
 	return (
-		<div>
-			<Card
-				edit={edit}
-				data={data}
-				setUserImage={setUserImage}
-				setUserName={setUserName}
-				setUserSlogan={setUserSlogan}
-				setUserEmail={setUserEmail}
-				setUserLocal={setUserLocal}
-			/>
-			<History
-				edit={edit}
-				data={data}
-				setHistoryYear={setHistoryYear}
-				setHistoryTitle={setHistoryTitle}
-				setHistorySubTitle={setHistorySubtitle}
-			/>
-			<Introduce
-				edit={edit}
-				introduce={introduce}
-				setIntroduce={setIntroduce}
-				handleUploadData={handleuploadData}
-			/>
-		</div>
+		<>
+			<button
+				onClick={() => {
+					setEdit(true);
+				}}
+			>
+				수정하기
+			</button>
+			<div>
+				<Card
+					edit={edit}
+					data={data}
+					setUserImage={setUserImage}
+					setUserName={setUserName}
+					setUserSlogan={setUserSlogan}
+					setUserEmail={setUserEmail}
+					setUserLocal={setUserLocal}
+				/>
+				<History
+					edit={edit}
+					data={data}
+					setHistoryYear={setHistoryYear}
+					setHistoryTitle={setHistoryTitle}
+					setHistorySubTitle={setHistorySubtitle}
+				/>
+				<Introduce
+					data={data}
+					edit={edit}
+					introduce={introduce}
+					setIntroduce={setIntroduce}
+					handleUploadData={handleuploadData}
+				/>
+			</div>
+		</>
 	);
 };
 

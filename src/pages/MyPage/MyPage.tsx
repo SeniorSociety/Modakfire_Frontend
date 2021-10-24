@@ -74,9 +74,15 @@ function MyPage() {
 	};
 
 	useEffect(() => {
-		axios.get(`${API.PROFILE}`).then(res => {
-			setData(res.data.MESSAGE);
-		});
+		axios
+			.get(`${API.PROFILE}`, {
+				headers: {
+					Authorization: localStorage.getItem('TOKEN'),
+				},
+			})
+			.then(res => {
+				setData(res.data.MESSAGE);
+			});
 	}, []);
 
 	return (
