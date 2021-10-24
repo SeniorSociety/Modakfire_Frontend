@@ -5,7 +5,6 @@ import axios from 'axios';
 import { API } from '../../config';
 
 function SignUp() {
-	const history = useHistory();
 	const location = useLocation();
 	const [inputNickname, setInputNickname] = useState('');
 
@@ -15,6 +14,10 @@ function SignUp() {
 	};
 
 	const onCreateNickname = () => {
+		if (inputNickname === '') {
+			alert('닉네임을 입력해주세요');
+			return;
+		}
 		const token: any = location.state;
 		axios({
 			method: 'post',
