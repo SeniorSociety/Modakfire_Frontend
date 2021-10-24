@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 // import BoardViewer from './BoardViewer';
 import axios from 'axios';
 import { Editor } from '@toast-ui/react-editor';
@@ -9,6 +9,7 @@ import './Board.scss';
 
 const BoardPost = () => {
 	const history = useHistory();
+	const { id }: any = useParams();
 	const editorRef = useRef<Editor>(null);
 
 	interface Information {
@@ -39,15 +40,14 @@ const BoardPost = () => {
 
 		axios({
 			method: 'post',
-			url: `${API.GALLERIES}/1`,
+			url: `${API.GALLERIES}/${id}`,
 			data: form,
 			headers: {
 				Authorization: localStorage.getItem('TOKEN'),
 			},
 		})
 			.then(response => {
-				let POSTING_ID = response.data.POSTING_ID;
-				history.push(`/board-viewer/${POSTING_ID}`);
+				history.push(`/board-list/${id}`);
 			})
 			.catch(error => console.log(error));
 	};
@@ -74,7 +74,6 @@ const BoardPost = () => {
 		}
 		return () => {};
 	}, [editorRef]);
-
 	return (
 		<div className="BoardList">
 			<div className="formWrapper">

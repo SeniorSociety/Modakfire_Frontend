@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { API } from '../../config';
 import './InfiniteScroll.scss';
@@ -18,8 +18,7 @@ interface PostData {
 
 function InfiniteScroll() {
 	const history = useHistory();
-	const location = useLocation();
-	const id = location.pathname.split('/')[2];
+	const { id }: any = useParams();
 
 	const [pageIndex, setPageIndex] = useState<number>(1);
 	const [dataList, setDataList] = useState([
@@ -86,6 +85,7 @@ function InfiniteScroll() {
 		return () => io.disconnect();
 	}, [dataList]);
 
+	console.log('id', id);
 	return (
 		<div className="wrapper">
 			<section className="post-grid" ref={viewport}>
@@ -111,7 +111,7 @@ function InfiniteScroll() {
 							className={`${lastPost && 'last'} post`}
 							ref={lastPost ? target : null}
 							onClick={() => {
-								history.push(`/board-viewer/${post.id}`);
+								history.push(`/board-viewer/${post.id}`, id);
 							}}
 						>
 							<img alt="thumbnail" src={post.thumbnail} />
