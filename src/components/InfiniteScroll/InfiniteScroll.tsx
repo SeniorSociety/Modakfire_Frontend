@@ -43,8 +43,8 @@ function InfiniteScroll() {
 		if (!pageIndex) return;
 
 		try {
-			// const res = await axios.get(`${API.GALLERIES}/${id}?page=${pageIndex}`);
-			const res = await axios.get(`./data/mock1.json`);
+			const res = await axios.get(`${API.GALLERIES}/${id}?page=${pageIndex}`);
+			// const res = await axios.get(`./data/mock1.json`);
 			const result = res.data.MESSAGE;
 
 			// console.log('item');
