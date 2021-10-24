@@ -67,7 +67,7 @@ function HeaderBottom() {
 		<>
 			<nav className="headerTopContainer">
 				<img
-					src="./images/logo_color.png"
+					src="/images/logo_color.png"
 					alt="x"
 					className="mainLogo"
 					onClick={() => {

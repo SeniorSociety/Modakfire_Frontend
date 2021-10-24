@@ -65,7 +65,7 @@ function Header() {
 	return width > 768 ? (
 		<nav className="headerContainer">
 			<div className="logo" onClick={moveToMain}>
-				<img src="./images/logo_color.png" alt="x" className="mainLogo" />
+				<img src="/images/logo_color.png" alt="x" className="mainLogo" />
 			</div>
 			<div className="rightContainer">
 				<div className="signIn" onClick={moveToNamecard}>
