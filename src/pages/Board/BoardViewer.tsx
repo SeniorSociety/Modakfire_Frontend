@@ -102,6 +102,7 @@ function BoardViewer() {
 				console.log(error);
 			});
 	}, []);
+
 	return (
 		<>
 			<Post postContent={postContent} setPostContent={setPostContent} />

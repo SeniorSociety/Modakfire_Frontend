@@ -60,3 +60,14 @@
 		}
 	}
 }
+
+.emptyboard {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	span {
+		margin-top: 20px;
+		text-align: center;
+	}
+}

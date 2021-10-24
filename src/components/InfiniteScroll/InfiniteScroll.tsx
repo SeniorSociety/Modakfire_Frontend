@@ -37,7 +37,7 @@ function InfiniteScroll() {
 			// console.log('item');
 
 			setDataList(prevState => {
-				return [...result, ...prevState];
+				return [...result];
 			});
 
 			setPageIndex(prevState => {
@@ -73,7 +73,7 @@ function InfiniteScroll() {
 		return () => io.disconnect();
 	}, [dataList]);
 
-	console.log('id', id);
+	// console.log('id', id);
 	return (
 		<div>
 			<section className="post-grid" ref={viewport}>
@@ -96,7 +96,7 @@ function InfiniteScroll() {
 					console.log(dataList);
 					return (
 						<>
-							{dataList.length > 0 ? (
+							{dataList.length !== 1 ? (
 								<div
 									key={index}
 									className={`${lastPost && 'last'} post`}
@@ -115,7 +115,7 @@ function InfiniteScroll() {
 									</article>
 								</div>
 							) : (
-								<div>
+								<div className="emptyboard">
 									<img src="/images/noBoard.png" alt="noBoard" width={'100%'} />
 									<span>첫 게시글을 작성해주세요</span>
 								</div>

@@ -38,6 +38,8 @@ const BoardPost = () => {
 		form.append('title', moveContent.title);
 		form.append('content', moveContent.content);
 
+		console.log(moveContent);
+
 		axios({
 			method: 'post',
 			url: `${API.GALLERIES}/${id}`,
@@ -50,6 +52,7 @@ const BoardPost = () => {
 				history.push(`/board-list/${id}`);
 			})
 			.catch(error => console.log(error));
+		console.log(form);
 	};
 
 	useEffect(() => {
