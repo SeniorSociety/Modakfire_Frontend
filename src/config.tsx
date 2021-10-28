@@ -1,4 +1,4 @@
-const BASE_URL = 'http://172.30.1.51:8000';
+const BASE_URL = 'http://172.30.1.15:8000';
 
 export const API = {
 	SIGN: `${BASE_URL}/users`,
