@@ -126,6 +126,7 @@ S3에 호스팅을 하면서 발생하는 쓸모없는 이미지들을 지워주
 
 - 전체 갤러리 리스트 표시
 - 인기 갤러리 및 인기 게시물 표시
+<img width="407" alt="스크린샷 2021-10-27 오후 3 18 14" src="https://user-images.githubusercontent.com/4047515/139218727-2bc02b99-3ef9-4fa2-9643-00afd970682e.png">
 
 <br>
 
@@ -141,6 +142,7 @@ S3에 호스팅을 하면서 발생하는 쓸모없는 이미지들을 지워주
 
 - 게시글 등록과 함께 이미지는 AWS S3에 저장
 - DB에는 해당 이미지 오브젝트 URL 저장
+<img width="411" alt="스크린샷 2021-10-27 오후 3 30 22" src="https://user-images.githubusercontent.com/4047515/139218806-d02a92f4-00fa-4960-9c09-a06f331cf932.png">
 
 <br>
 
@@ -150,6 +152,7 @@ S3에 호스팅을 하면서 발생하는 쓸모없는 이미지들을 지워주
 - JWT 토큰 발행 후, 사이트 내 로그인 수행 또는 회원가입 페이지
 - 로그인 데코레이터
 - 회원 정보 수정 / 탈퇴
+<img width="406" alt="스크린샷 2021-10-27 오후 3 18 33" src="https://user-images.githubusercontent.com/4047515/139218828-70be3937-9107-45c5-86c0-51bddbea2204.png">
 
 <br>
 
@@ -177,6 +180,8 @@ Introduce (소개&관심분야)
 - 유저의 소개 및 관심분야를 자유롭게 텍스트로 작성
 
 <br>
+<img width="412" alt="스크린샷 2021-10-27 오후 3 21 01" src="https://user-images.githubusercontent.com/4047515/139218896-6eac2ee0-24e9-449b-b79e-0ab1df2cb107.png">
+<img width="413" alt="스크린샷 2021-10-27 오후 3 19 11" src="https://user-images.githubusercontent.com/4047515/139218901-5ff688da-b3af-47aa-88bb-27178abbdb0c.png">
 
 <br>
 
