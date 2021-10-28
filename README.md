@@ -182,6 +182,7 @@ Introduce (소개&관심분야)
 
 ## **사용 기술 스택**
 
+Frontend : HTML6, SCSS, React, Redux, Docker
 Backend : Python, Django, MySql, Postman, AWS, Docker, Jenkins
 
 ### Reference
