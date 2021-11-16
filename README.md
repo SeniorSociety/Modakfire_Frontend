@@ -4,8 +4,6 @@
 
 ### **액티브 시니어를 위한 지역 기반 커뮤니티**
 
-<br>
-
 **기획서** [**[Link]**](https://docs.google.com/document/d/136YOXGBK_PrPL4G3J9W8oy0888f45thhphWWxeoCrqM/edit?usp=sharing)
 
 - 개요, 타겟, 기능, 개선 사항 등의 기획문서입니다
@@ -15,26 +13,19 @@
 
 - 사이트의 전반적인 기능을 가시화한 Workflow입니다.
 - 시니어 마케팅 기획자와 위클리 미팅을 통해서 Workflow를 최적화하고 Figma로 작성했습니다.
-<br>
 
 ### 타겟
 
 - 초기 타겟은 경제력을 보유하고 새로운 인프라를 경험하는 것에 대한 거부감이 낮은 액티브 시니어
 
-<br>
-
 ### 목표
 
 - 네임카드를 통해 상대방의 정보를 확인하고 관심 분야의 오프라인 모임으로의 확장
-
-<br>
 
 ### 타 커뮤니티 플랫폼과의 차별점
 
 - 네임카드란 다른 유저에게 자신의 이력, 정보 등을 제공하는 이력 카드
 - 네임카드 컨텐츠를 제공하여 다른 커뮤니티보다 깊은 유대감 형성이 가능하며 소속감을 느낄 수 있다.
-
-<br>
 
 ### 배경
 
@@ -46,16 +37,12 @@
 
 ## 개발 인원 및 기간
 
-<br>
-
 - 개발기간 : 2021/8/30 ~ 2021/9/30
 - 개발 인원 : 프론트엔드 4명, 백엔드 3명
-<br>
 
 ## 버전 관리
 
 ![Flowchart_(1)](https://user-images.githubusercontent.com/84912594/137124523-b5fed45f-810e-460c-9a45-86d334806047.jpeg)
-
 
 Branch는 Gitflow 방식을 따라 5가지로 분류했습니다.
 <br>
@@ -66,7 +53,6 @@ CI/CD Pipeline도 Release branch와 연결해두었습니다.
 
 ## AWS Architecture Diagram
 
-<br>
 <div align=center><img src="https://modakfire-static.s3.ap-northeast-2.amazonaws.com/readme/AWS+Architecture+Diagram.jpg"></div>
 <br>
 
@@ -77,11 +63,8 @@ CI/CD Pipeline도 Release branch와 연결해두었습니다.
 
 <div align=center><img src="https://modakfire-static.s3.ap-northeast-2.amazonaws.com/readme/CloudWatch_Alarm.png"></div>
 
-<br>
-
 ## Jenkins PipeLine
 
-<br>
 <div align=center><img src="https://modakfire-static.s3.ap-northeast-2.amazonaws.com/readme/Jenkins+Pipeline.jpg"></div>
 <br>
 
@@ -97,7 +80,6 @@ CI/CD Pipeline도 Release branch와 연결해두었습니다.
 
 <div align=center><img src="https://modakfire-static.s3.ap-northeast-2.amazonaws.com/readme/Jenkins+Finished.png"></div>
 
-<br>
 
 ## S3 Cronjob
 
@@ -106,19 +88,16 @@ S3에 호스팅을 하면서 발생하는 쓸모없는 이미지들을 지워주
 
 ![cronjob](https://user-images.githubusercontent.com/84912594/137124088-d3a2bc59-decd-49f3-a695-863c92715880.jpg)
 
-<br>
 
 ## Figma
 
 [LINK](https://www.figma.com/file/lhoMVBbDJclwdIhpG8uONm/%EB%AA%A8%EB%8B%A5%EB%B6%88-sketch?node-id=2%3A474)
 
-<br>
 
 ## Modeling
 
 <div align=center><img src="https://modakfire-static.s3.ap-northeast-2.amazonaws.com/readme/Modeling.png"></div>
 
-<br>
 
 ## 구현 기능
 
@@ -128,7 +107,6 @@ S3에 호스팅을 하면서 발생하는 쓸모없는 이미지들을 지워주
 - 인기 갤러리 및 인기 게시물 표시
 <img width="407" alt="스크린샷 2021-10-27 오후 3 18 14" src="https://user-images.githubusercontent.com/4047515/139218727-2bc02b99-3ef9-4fa2-9643-00afd970682e.png">
 
-<br>
 
 ### 게시물 리스트
 
@@ -136,7 +114,6 @@ S3에 호스팅을 하면서 발생하는 쓸모없는 이미지들을 지워주
 - 댓글 등록/수정/삭제
 - 유저 네임카드 조회
 
-<br>
 
 ### 게시글 작성
 
@@ -144,7 +121,6 @@ S3에 호스팅을 하면서 발생하는 쓸모없는 이미지들을 지워주
 - DB에는 해당 이미지 오브젝트 URL 저장
 <img width="411" alt="스크린샷 2021-10-27 오후 3 30 22" src="https://user-images.githubusercontent.com/4047515/139218806-d02a92f4-00fa-4960-9c09-a06f331cf932.png">
 
-<br>
 
 ### 회원가입 & 로그인
 
@@ -162,7 +138,6 @@ S3에 호스팅을 하면서 발생하는 쓸모없는 이미지들을 지워주
 - 내가 댓글을 작성한 게시물 리스트 확인
 - 네임카드 수정
 
-<br>
 
 ### 네임카드
 
@@ -179,11 +154,9 @@ Introduce (소개&관심분야)
 
 - 유저의 소개 및 관심분야를 자유롭게 텍스트로 작성
 
-<br>
 <img width="412" alt="스크린샷 2021-10-27 오후 3 21 01" src="https://user-images.githubusercontent.com/4047515/139218896-6eac2ee0-24e9-449b-b79e-0ab1df2cb107.png">
 <img width="413" alt="스크린샷 2021-10-27 오후 3 19 11" src="https://user-images.githubusercontent.com/4047515/139218901-5ff688da-b3af-47aa-88bb-27178abbdb0c.png">
 
-<br>
 
 ## **사용 기술 스택**
 
