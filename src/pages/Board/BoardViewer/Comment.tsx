@@ -38,9 +38,6 @@ const Comment = (props: any) => {
 						</>
 					) : null}
 				</div>
-				{/* <button className="submitButton" style={{ width: '100%', backgroundColor: '#A9AAAC' }}>
-					게시판으로 돌아가기
-				</button> */}
 			</div>
 		</>
 	);

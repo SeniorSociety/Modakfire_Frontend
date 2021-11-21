@@ -104,16 +104,7 @@ const BoardPost = () => {
 			<button className="submitButton" onClick={submitPost} style={{ marginTop: '20px' }}>
 				게시물 등록
 			</button>
-			{/* <button
-				className="submitButton"
-				onClick={() => {
-					history.push('./board-list');
-				}}
-				style={{ marginBottom: '10px', backgroundColor: '#A9AAAC' }}
-			>
-				게시판으로 돌아가기
-			</button> */}
-			{/* {3 > 5 && <BoardViewer viewContent={viewContent} />} */}
+			{3 > 5 && <BoardViewer viewContent={viewContent} />}
 		</div>
 	);
 };
