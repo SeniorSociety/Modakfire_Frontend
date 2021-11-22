@@ -58,10 +58,10 @@ const BoardPost = () => {
 	useEffect(() => {
 		if (editorRef.current) {
 			editorRef.current.getInstance().removeHook('addImageBlobHook');
-			editorRef.current.getInstance().addHook('addImageBlobHook', (bolb, callback) => {
+			editorRef.current.getInstance().addHook('addImageBlobHook', (blob, callback) => {
 				(async () => {
 					let formData: any = new FormData();
-					formData.append('image', bolb);
+					formData.append('image', blob);
 					axios
 						.post(`${API.GALLERIES}/images`, formData, {
 							headers: {
