@@ -7,7 +7,6 @@
 **기획서** [**[Link]**](https://docs.google.com/document/d/136YOXGBK_PrPL4G3J9W8oy0888f45thhphWWxeoCrqM/edit?usp=sharing)
 
 - 개요, 타겟, 기능, 개선 사항 등의 기획문서입니다
-- 문서는 지속적으로 업데이트되고 있습니다.
 
 **Workflow** [**[Link]**](https://www.figma.com/file/lhoMVBbDJclwdIhpG8uONm/%EB%AA%A8%EB%8B%A5%EB%B6%88-sketch?node-id=2%3A474)
 
